@@ -1,0 +1,4 @@
+vérificateur d’accessibilité :https://achecker.ca/checker/index.php
+lecture d'écran par clavier : https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders
+site maquette : https://www.figma.com/file/pt8xJxC1QffW4HX16QhGZJ/UI-Design-FishEye-FR?node-id=0%3A1
+Utiliser le pattern factory method : https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1#:~:text=A%20factory%20function%20is%20any,keyword%2C%20it's%20a%20factory%20function.
