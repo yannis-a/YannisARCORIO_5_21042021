@@ -2,5 +2,24 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "sass": "^1.32.13"
-  }
+  },
+  "name": "yannisarcorio_6_21042021",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass":"sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yannis-a/YannisARCORIO_6_21042021.git"
+  },
+  "author": "Arcorio Yannis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yannis-a/YannisARCORIO_6_21042021/issues"
+  },
+  "homepage": "https://github.com/yannis-a/YannisARCORIO_6_21042021#readme",
+  "description": ""
 }
