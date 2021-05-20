@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+    @include box-shadow;
+
+    a {
+        position: absolute;
+        top: 9.2px;
+        left: 10px;
+        font-size: larger;
+    }
+}

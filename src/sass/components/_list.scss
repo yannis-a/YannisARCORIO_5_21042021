@@ -1,0 +1,70 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    li {
+        margin-bottom: 10px;
+    }
+
+
+    &__normal {
+
+        li {
+            display: flex;
+            border-radius: 25px;
+            align-items: center;
+            @include box-shadow;
+            margin: 0 20px 20px 20px;
+            z-index: 1;
+            position: relative;
+
+            i {
+                margin: $marge-hight;
+                color: grey;
+            }
+
+            .text {
+                font-weight: 600;
+            }
+
+            .style--round {
+                border-radius: 50%;
+                background-color: $colour-primary;
+                color: white;
+                height: 20px;
+                width: 20px;
+                position: relative;
+                right: 5px;
+                display: flex;
+
+                span {
+                    margin: auto;
+                }
+            }
+
+            &:hover {
+                .background {
+                    opacity: 1;
+                }
+
+                i {
+                    color: $colour-primary;
+                }
+            }
+
+            .background {
+                border-radius: 25px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: lighten($colour-secondary, 20%);
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 250ms linear;
+            }
+        }
+    }
+}

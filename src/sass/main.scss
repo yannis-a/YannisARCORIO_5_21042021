@@ -1,0 +1,20 @@
+@import "./utils/variables";
+@import "./utils/functions";
+@import "./utils/mixins";
+@import "./utils/keyframes";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/buttons";
+@import "./components/list";
+@import "./components/loader";
+
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/card";
+@import "./layout/menu";
+
+
+@import "./pages/index";
+

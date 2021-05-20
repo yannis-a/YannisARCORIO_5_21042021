@@ -1,15 +1,20 @@
 {
-  "dependencies": {
-    "jquery": "^3.6.0",
-    "sass": "^1.32.13"
-  },
   "name": "yannisarcorio_6_21042021",
   "version": "1.0.0",
-  "main": "script.js",
-  "devDependencies": {},
+  "main": "src/js/script.js",
+  "devDependencies": {
+    "core-js": "^2.6.12",
+    "jquery": "^3.6.0",
+    "sass": "^1.32.13",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass":"sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./src/sass/main.scss:./public/css/style.css",
+    "build": "webpack",
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -21,5 +26,8 @@
     "url": "https://github.com/yannis-a/YannisARCORIO_6_21042021/issues"
   },
   "homepage": "https://github.com/yannis-a/YannisARCORIO_6_21042021#readme",
-  "description": ""
+  "description": "Project 6 OpenClassrooms Fisheye",
+  "dependencies": {
+    "uuid": "^3.4.0"
+  }
 }

@@ -1,0 +1,17 @@
+﻿.footer {
+    background-color: lighten( black, 10%);
+    color: white;
+    padding: 15px;
+    font-size: 0.7em;
+
+    .title {
+        font-size: 1.2em;
+    }
+
+    .list {
+        i {
+            margin-right: 5px;
+            width: 15px;
+        }
+    }
+}

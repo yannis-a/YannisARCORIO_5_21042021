@@ -1,0 +1,23 @@
+.btn {
+    @include btn;
+
+    &__principal {
+        @include lg-background-color();
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 50px;
+        border-radius: 25px;
+        font-size: 1em;
+        @include box-shadow();
+
+        &:hover {
+            @include box-shadow(0.8);
+            @include lg-background-color($colour-primary,lighten($colour-secondary, 10%));
+        }
+    }
+
+    &--thin {
+        width: 50%;
+    }
+}
