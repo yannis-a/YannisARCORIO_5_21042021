@@ -1,3 +1,933 @@
+@keyframes popOn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes disappear {
+  0%, 99% {
+    position: relative;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@keyframes appear {
+  0%, 99% {
+    position: absolute;
+  }
+  100% {
+    position: relative;
+  }
+}
+@keyframes load {
+  0%, 100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 730px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.center {
+  text-align: center;
+}
+
+section {
+  padding: 30px 10px 30px 10px;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+.mb-3 {
+  margin-bottom: 0.75rem !important;
+}
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+.mb-5 {
+  margin-bottom: 1.25rem !important;
+}
+.mb-6 {
+  margin-bottom: 1.5rem !important;
+}
+.mb-7 {
+  margin-bottom: 1.75rem !important;
+}
+.mb-8 {
+  margin-bottom: 2rem !important;
+}
+.mb-9 {
+  margin-bottom: 2.25rem !important;
+}
+.mb-10 {
+  margin-bottom: 2.5rem !important;
+}
+.mb-x4 {
+  margin-bottom: 4rem !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+.mt-1 {
+  margin-top: 0.25rem !important;
+}
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+.mt-3 {
+  margin-top: 0.75rem !important;
+}
+.mt-4 {
+  margin-top: 1rem !important;
+}
+.mt-5 {
+  margin-top: 1.25rem !important;
+}
+.mt-6 {
+  margin-top: 1.5rem !important;
+}
+.mt-7 {
+  margin-top: 1.75rem !important;
+}
+.mt-8 {
+  margin-top: 2rem !important;
+}
+.mt-9 {
+  margin-top: 2.25rem !important;
+}
+.mt-10 {
+  margin-top: 2.5rem !important;
+}
+.mt-x4 {
+  margin-top: 4rem !important;
+}
+
+.img_user {
+  width: 50px;
+  height: 50px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.title-omf {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+}
+.title-large {
+  font-size: x-large;
+}
+.title-core {
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.title-core div {
+  width: 40px;
+  border-bottom: 5px solid #99E2D0;
+  border-radius: 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  z-index: 1;
+  position: relative;
+}
+.btn__principal {
+  background: linear-gradient(-10deg, #9356DC 0%, #FF79DA 100%);
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 1em;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.btn__principal:hover {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8);
+  background: linear-gradient(-10deg, #9356DC 0%, #fface8 100%);
+}
+.btn--thin {
+  width: 50%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.list li {
+  margin-bottom: 10px;
+}
+.list__normal li {
+  display: flex;
+  border-radius: 25px;
+  align-items: center;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  margin: 0 20px 20px 20px;
+  z-index: 1;
+  position: relative;
+}
+.list__normal li i {
+  margin: 20px;
+  color: grey;
+}
+.list__normal li .text {
+  font-weight: 600;
+}
+.list__normal li .style--round {
+  border-radius: 50%;
+  background-color: #9356DC;
+  color: white;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  right: 5px;
+  display: flex;
+}
+.list__normal li .style--round span {
+  margin: auto;
+}
+.list__normal li:hover .background {
+  opacity: 1;
+}
+.list__normal li:hover i {
+  color: #9356DC;
+}
+.list__normal li .background {
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffdff6;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 250ms linear;
+}
+
+.loader {
+  color: #99E2D0;
+  font-size: 20px;
+  margin: 200px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  animation: load 1.4s 2 linear, disappear 4s linear both;
+}
+
+.header {
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.header a {
+  position: absolute;
+  top: 9.2px;
+  left: 10px;
+  font-size: larger;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px;
+  font-size: 0.7em;
+}
+.footer .title {
+  font-size: 1.2em;
+}
+.footer .list i {
+  margin-right: 5px;
+  width: 15px;
+}
+
+.group_card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap row;
+}
+.group_card .card {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+  margin: 0 20px 20px 20px;
+  transition: 0.3s;
+  border-radius: 15px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.group_card .card:hover {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8);
+}
+.group_card .card_dish {
+  display: flex;
+  flex-flow: nowrap row;
+  width: 100%;
+  max-width: 100%;
+  padding: 5px 10px;
+  height: 50px;
+  border: none;
+  overflow: hidden;
+}
+.group_card .card_dish_note {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.group_card .card_dish_note > p, .group_card .card_dish_note > h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.group_card .card_dish_price {
+  font-weight: bold;
+  font-size: 0.9em;
+  align-self: flex-end;
+}
+.group_card .card_dish_confirmation {
+  background-color: #99E2D0;
+  margin: -1em -6em -1em 2em;
+  width: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+}
+.group_card .card_dish:hover .card_dish_confirmation {
+  margin-right: -1em;
+}
+.group_card .card_dish_wrapIcon {
+  height: 1.6em;
+  width: 1.6em;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  transform: rotate(-180deg);
+  transition-duration: 0.7s;
+}
+.group_card .card_dish:hover .card_dish_wrapIcon {
+  transform: rotate(0);
+}
+.group_card .card_dish_icon {
+  color: #99E2D0;
+}
+.group_card .card__body {
+  display: flex;
+  justify-content: space-between;
+}
+.group_card .card__body__core {
+  padding: 10px;
+}
+.group_card .card__body__core__title {
+  font-size: 0.8em;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+.group_card .card__body__core__text {
+  font-size: 0.7em;
+}
+.group_card .card__body .favory {
+  border: none;
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 50px;
+  font-size: 1.5em;
+}
+.group_card .card__body .favory--empty {
+  position: relative;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  transition: color 1000ms ease-out;
+}
+.group_card .card__body .favory--empty:hover {
+  color: #9356DC;
+}
+.group_card .card__body .favory--empty:hover + .favory--full {
+  opacity: 1;
+  transform: scale(1);
+}
+.group_card .card__body .favory--full {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 1000ms ease-out;
+  transform-origin: bottom;
+  color: #9356DC;
+}
+.group_card .card__body .favory--full:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+.group_card .card__body .favory--full:hover + .favory--empty {
+  color: #9356DC;
+}
+.group_card .card__image {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+.group_card .card__image img {
+  width: inherit;
+}
+.group_card .card--new {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: #99E2D0;
+  padding: 5px 10px;
+  font-size: 0.7em;
+  z-index: 2;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+.menu__title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-radius: 30px 30px 0px 0px;
+  max-width: 500px;
+}
+.menu__title .favory {
+  border: none;
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 50px;
+  font-size: 1.5em;
+}
+.menu__title .favory--empty {
+  position: relative;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  transition: color 1000ms ease-out;
+}
+.menu__title .favory--empty:hover {
+  color: #9356DC;
+}
+.menu__title .favory--empty:hover + .favory--full {
+  opacity: 1;
+  transform: scale(1);
+}
+.menu__title .favory--full {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 1000ms ease-out;
+  transform-origin: bottom;
+  color: #9356DC;
+}
+.menu__title .favory--full:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+.menu__title .favory--full:hover + .favory--empty {
+  color: #9356DC;
+}
+.menu__core {
+  background-color: white;
+  max-width: 500px;
+  /* jusqu'a 3 : valeur prise en fonction du nombre parti dans un menu 'entree' 'plat' et 'dessert'*/
+}
+.menu__core > .menu__part {
+  padding: 10px 0px 5px 0px;
+  max-width: 100vw;
+}
+.menu__core .menu__part:nth-child(0) {
+  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 0s;
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 0.3s;
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 0.6s;
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.menu__core .menu__part:nth-child(0) .card_dish:nth-child(5) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.menu__core .menu__part:nth-child(1) {
+  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 1.6s;
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 1.7s;
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 1.9s;
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 2.2s;
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 2.6s;
+}
+.menu__core .menu__part:nth-child(1) .card_dish:nth-child(5) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3.1s;
+}
+.menu__core .menu__part:nth-child(2) {
+  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3.3s;
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3.4s;
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3.6s;
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3.9s;
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4.3s;
+}
+.menu__core .menu__part:nth-child(2) .card_dish:nth-child(5) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4.8s;
+}
+.menu__core .menu__part:nth-child(3) {
+  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5.1s;
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5.2s;
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5.4s;
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5.7s;
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6.1s;
+}
+.menu__core .menu__part:nth-child(3) .card_dish:nth-child(5) {
+  transform: scale(0);
+  animation: popOn 1s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6.6s;
+}
+.menu__img {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+@media screen and (max-width: 730px) {
+  .menu__img {
+    height: 180px;
+  }
+}
+.menu__img img {
+  max-width: 100vw;
+}
+@media screen and (min-width: 730px) {
+  .menu__img img {
+    position: fixed;
+    left: 0;
+  }
+}
+
+.entete {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex: 100%;
+  flex-direction: column;
+  background-color: whitesmoke;
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
+}
+.entete .card:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+}
+.entete .card:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4s, 1s;
+}
+.entete .card:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5s, 1s;
+}
+.entete .card:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6s, 1s;
+}
+.entete .card:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 7s, 1s;
+}
+.entete h3 {
+  width: 60%;
+}
+.entete p {
+  width: 85%;
+  margin: 5px;
+  font-weight: 300;
+}
+
+.fonctionnement {
+  flex: 1;
+  max-width: 400px;
+  min-width: 300px;
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
+}
+.fonctionnement .card:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+}
+.fonctionnement .card:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4s, 1s;
+}
+.fonctionnement .card:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5s, 1s;
+}
+.fonctionnement .card:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6s, 1s;
+}
+.fonctionnement .card:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 7s, 1s;
+}
+@media screen and (max-width: 730px) {
+  .fonctionnement {
+    margin: auto;
+  }
+}
+
+.localisation {
+  text-align: center;
+  padding: 10px;
+  background-color: #ebebeb;
+  font-size: 0.9em;
+  width: 100%;
+  position: relative;
+  top: -30px;
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
+}
+.localisation .card:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+}
+.localisation .card:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4s, 1s;
+}
+.localisation .card:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5s, 1s;
+}
+.localisation .card:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6s, 1s;
+}
+.localisation .card:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 7s, 1s;
+}
+.localisation i {
+  margin-right: 10px;
+}
+
+.restaurant {
+  flex: 1;
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
+}
+.restaurant .card:nth-child(0) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 3s, 1s;
+}
+.restaurant .card:nth-child(1) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 4s, 1s;
+}
+.restaurant .card:nth-child(2) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 5s, 1s;
+}
+.restaurant .card:nth-child(3) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 6s, 1s;
+}
+.restaurant .card:nth-child(4) {
+  transform: scale(0);
+  animation: popOn 2s, appear 2s;
+  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-fill-mode: both;
+  animation-delay: 7s, 1s;
+}
 
 /*# sourceMappingURL=style.css.map */

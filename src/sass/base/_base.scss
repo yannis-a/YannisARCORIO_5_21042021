@@ -28,14 +28,6 @@ section {
     padding: $padding-section;
 }
 
-.mhight {
-    margin: $marge-hight;
-}
-
-.mthin {
-    margin: $marge-thin;
-}
-
 .mb {
     &-0 {
         margin-bottom: 0 !important;
@@ -134,4 +126,9 @@ section {
     &-x4 {
         margin-top: $spacer * 4 !important;
     }
+}
+
+.img_user{
+    width: 50px;
+    height: 50px;
 }
