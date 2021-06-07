@@ -1,10 +1,10 @@
-import retrieveContent from "./query.js";
+import retrieveData from "./query.js";
 
 
 
 async function getTags() {
   try {
-    const data = await retrieveContent();
+    const data = await retrieveData();
     data.tags.forEach((element) => {
       $('#tags').append($('<li>' + element + '</li>').addClass('tag'));
     });
@@ -15,13 +15,13 @@ async function getTags() {
 
 async function getPhotographers() {
   try {
-    const data = await retrieveContent();
+    const data = await retrieveData();
 
     data.photographers.forEach((photographer) => {
       var urlImg = "src/Sample Photos/ID Photos/" + photographer.portrait;
       var tags = "";
       photographer.tags.forEach(tag => {
-        tags += '<span class="tag">' + tag + '</span>,'
+        tags += '<span class="tag">' + tag + '</span>'
       })
       $("#photographers").append(
         $('<article></article>').addClass('card card_user').append(
