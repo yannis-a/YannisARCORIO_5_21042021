@@ -5,29 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/css/style.css" rel="stylesheet" type="text/css">
+    <title>Fisheye</title>
     <script src="node_modules\jquery\dist\jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/f4e9387bdc.js" crossorigin="anonymous"></script>
-    <title>Fisheye</title>
+    <script src="./dist/app.bundle.js"></script>
 </head>
 
 <body>
     <header aria-label="header" role="banner">
-        <button type="button" id="goto-main" class="btn" aria-label="going to main page" aria-hidden="true" role="button">
-            Passer au contenu
-        </button>
-        <figure role="logo main page">
-            <img src="src/img/logo.png" alt="logo-main page">
-        </figure>
-        <nav aria-label="photographer categories" role="navigation" class="nav">
-            <ul id="tags" class="tags"></ul>
+        <a href="index.html" title="HomePage">
+            <img src="src/img/logo.png" alt="FishEye Home Page">
+        </a>
+        <nav aria-label="photographer categories" role="navigation" class="filters">
+            <ul id="filter-tags" class="tags"></ul>
         </nav>
+        <h1>Nos photographes</h1>
     </header>
     <main role="main">
-        <h1>Nos photographes</h1>
-        <section class="group-cards" id="photographers"></section>
+        <a id="back-home" href="#photographers">Passer au contenu</a>
+        <section class="group-cards" id="photographers" aria-label="photographers"></section>
     </main>
-    <script src="./dist/app.bundle.js"></script>
-
 </body>
 
 </html>
