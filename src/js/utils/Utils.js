@@ -72,7 +72,7 @@ export default class Utils {
 
 
     filterTags() {
-        let filtres = document.querySelector('#filter-tags');
+        let filtres = document.querySelector('#nav');
         let articles = document.querySelectorAll('.card_user');
 
         // listener on click filters
@@ -106,7 +106,7 @@ export default class Utils {
         let intersection = filters.filter(
             tag => classes.includes(tag)
         );
-        return intersection.length >= 1;
+        return intersection.length == filters.length;
     };
 
     // return string[] filters with the 'actived' class    
@@ -119,4 +119,9 @@ export default class Utils {
         });
         return filterSelected;
     };
+
+    // retourne la chaine de caractère avec la premier lettre en maj
+    toUpperCaseFirst(a) {
+        return (a + '').charAt(0).toUpperCase() + a.substr(1);
+    }
 }

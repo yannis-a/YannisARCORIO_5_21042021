@@ -13,7 +13,7 @@
 
         &:hover {
             @include box-shadow(0.8);
-            @include lg-background-color($colour-primary,lighten($colour-secondary, 10%));
+            @include lg-background-color($color-primary,lighten($color-secondary, 10%));
         }
     }
 

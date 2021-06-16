@@ -1,0 +1,21 @@
+.tags {
+    margin: auto;
+    width: 50%;
+    font-size: small;
+    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .tag {
+            color: $color-secondary;
+            border-radius: 10px;
+            border: 1px solid $color-secondary;
+            list-style: none;
+            a {
+                margin: 5px;
+                text-align: center;
+            }
+        }
+    }
+}

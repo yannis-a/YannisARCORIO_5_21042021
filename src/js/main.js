@@ -4,7 +4,7 @@ import Profil from './photographers/Profil.js';
 import Media from './utils/Media.js';
 import Utils from './utils/Utils.js'
 
-function app() {
+(function app() {
     new Data().getDataFishEye().then(data => {
         // si le chemin contient photographers.html alors on charge le profil du photographe
         if (window.location.pathname.includes("/photographers.html")) {
@@ -16,9 +16,11 @@ function app() {
         // sinon on charge la homepage
         new HomePage().getPhotographers(data);
         new HomePage().getTags(data);
+        new HomePage().autoSizeImg();
     }).catch(e => {
         console.error('Failed to load DataFishEye :' + e);
     })
-};
+})();
 
-app();
+
+

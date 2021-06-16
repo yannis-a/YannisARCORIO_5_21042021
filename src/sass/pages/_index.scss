@@ -1,50 +1,10 @@
-.entete {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex: 100%;
-    flex-direction: column;
-    background-color: lighten(black, 96%);
-    @include pop-restaurant;
-
-    h3 {
-        width: 60%;
+.index {
+    h1{
+        position: absolute;
+        width: 25%;
+        right: 0;
+        top: 0;
+        text-align: center;
+        padding: 60px 60px 0 60px;
     }
-
-    p {
-        width: 85%;
-        margin: $marge-thin;
-        font-weight: 300;
-    }
-}
-
-.fonctionnement {
-    flex: 1;
-    max-width: 400px;
-    min-width: 300px;
-    @include pop-restaurant;
-
-    @media screen and (max-width: 730px) {
-        margin: auto
-    }
-}
-
-.localisation {
-    text-align: center;
-    padding: $marge-medium;
-    background-color: lighten(black, 92%);
-    font-size: 0.9em;
-    width: 100%;
-    position: relative;
-    top: -30px;
-    @include pop-restaurant;
-
-    i {
-        margin-right: $marge-medium;
-    }
-}
-
-.restaurant {
-    flex: 1;
-    @include pop-restaurant;
 }

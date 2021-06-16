@@ -68,11 +68,6 @@ main {
 a {
   text-decoration: none;
   color: inherit;
-  position: relative;
-}
-
-.center {
-  text-align: center;
 }
 
 section {
@@ -153,35 +148,63 @@ section {
   margin-top: 4rem !important;
 }
 
-.img_user {
+img {
   width: 50px;
   height: 50px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+  header {
+    flex-direction: column;
+  }
+}
+header #nav {
+  width: 50%;
+  padding: 60px 60px 0 60px;
+}
+@media screen and (max-width: 1200px) {
+  header #nav {
+    width: 100%;
+  }
+}
+header .empty {
+  width: 25%;
+  padding: 60px 60px 0 60px;
+}
+header .home {
+  width: 25%;
+  padding: 60px 60px 0 60px;
+  text-align: center;
+}
+header .home img {
+  width: 200px;
+  height: 50px;
+}
+header #back-home {
+  position: fixed;
+  margin: 20px 45%;
+  width: 10%;
+  padding: 7px;
+  background-color: #D3573C;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  display: none;
 }
 
 * {
   font-family: "Roboto", sans-serif;
 }
 
-.title-omf {
-  font-family: "Shrikhand", cursive;
+h1 {
+  color: #901C1C;
   font-weight: 400;
-}
-.title-large {
-  font-size: x-large;
-}
-.title-core {
-  font-weight: 400;
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
-.title-core div {
-  width: 40px;
-  border-bottom: 5px solid #99E2D0;
-  border-radius: 5px;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
 
 .btn {
@@ -191,7 +214,7 @@ section {
   position: relative;
 }
 .btn__principal {
-  background: linear-gradient(-10deg, #9356DC 0%, #FF79DA 100%);
+  background: linear-gradient(-10deg, #D3573C 0%, #901C1C 100%);
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -202,7 +225,7 @@ section {
 }
 .btn__principal:hover {
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8);
-  background: linear-gradient(-10deg, #9356DC 0%, #fface8 100%);
+  background: linear-gradient(-10deg, #D3573C 0%, #bb2424 100%);
 }
 .btn--thin {
   width: 50%;
@@ -234,7 +257,7 @@ section {
 }
 .list__normal li .style--round {
   border-radius: 50%;
-  background-color: #9356DC;
+  background-color: #D3573C;
   color: white;
   height: 20px;
   width: 20px;
@@ -249,7 +272,7 @@ section {
   opacity: 1;
 }
 .list__normal li:hover i {
-  color: #9356DC;
+  color: #D3573C;
 }
 .list__normal li .background {
   border-radius: 25px;
@@ -258,14 +281,14 @@ section {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #ffdff6;
+  background-color: #d93939;
   opacity: 0;
   z-index: -1;
   transition: opacity 250ms linear;
 }
 
 .loader {
-  color: #99E2D0;
+  color: black;
   font-size: 20px;
   margin: 200px auto;
   width: 1em;
@@ -274,83 +297,72 @@ section {
   animation: load 1.4s 2 linear, disappear 4s linear both;
 }
 
-.header {
+.tags {
+  margin: auto;
+  width: 50%;
+  font-size: small;
+}
+.tags ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.tags ul .tag {
+  color: #901C1C;
+  border-radius: 10px;
+  border: 1px solid #901C1C;
+  list-style: none;
+}
+.tags ul .tag a {
+  margin: 5px;
   text-align: center;
-  padding: 5px;
-  background-color: white;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-}
-.header a {
-  position: absolute;
-  top: 9.2px;
-  left: 10px;
-  font-size: larger;
 }
 
-.footer {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 15px;
-  font-size: 0.7em;
-}
-.footer .title {
-  font-size: 1.2em;
-}
-.footer .list i {
-  margin-right: 5px;
-  width: 15px;
-}
-
-.group_card {
+.group-cards {
   display: flex;
   justify-content: space-evenly;
   flex-flow: wrap row;
 }
-.group_card .card {
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border: 2px solid white;
+.group-cards .card_user {
   margin: 0 20px 20px 20px;
   transition: 0.3s;
-  border-radius: 15px;
-  height: 200px;
-  overflow: hidden;
+  border-radius: 10px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 25%;
 }
-.group_card .card:hover {
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8);
+.group-cards .card_user:hover {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
-.group_card .card_dish {
-  display: flex;
-  flex-flow: nowrap row;
+.group-cards .card_user_link-profil {
+  text-align: center;
+}
+.group-cards .card_user_link-profil .img_user {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+}
+.group-cards .card_user_link-profil .img_user .img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.group-cards .card_user_link-profil .img_user .imgL {
   width: 100%;
-  max-width: 100%;
-  padding: 5px 10px;
-  height: 50px;
-  border: none;
-  overflow: hidden;
+  height: 100%;
 }
-.group_card .card_dish_note {
-  white-space: nowrap;
-  overflow: hidden;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-.group_card .card_dish_note > p, .group_card .card_dish_note > h4 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.group_card .card_dish_price {
+.group-cards .card_user_link-profil_price {
   font-weight: bold;
   font-size: 0.9em;
   align-self: flex-end;
 }
-.group_card .card_dish_confirmation {
-  background-color: #99E2D0;
+.group-cards .card_user_link-profil_confirmation {
+  background-color: black;
   margin: -1em -6em -1em 2em;
   width: 5em;
   display: flex;
@@ -358,10 +370,10 @@ section {
   justify-content: center;
   transition-duration: 0.5s;
 }
-.group_card .card_dish:hover .card_dish_confirmation {
+.group-cards .card_user_link-profil:hover .card_dish_confirmation {
   margin-right: -1em;
 }
-.group_card .card_dish_wrapIcon {
+.group-cards .card_user_link-profil_wrapIcon {
   height: 1.6em;
   width: 1.6em;
   background-color: white;
@@ -372,28 +384,28 @@ section {
   transform: rotate(-180deg);
   transition-duration: 0.7s;
 }
-.group_card .card_dish:hover .card_dish_wrapIcon {
+.group-cards .card_user_link-profil:hover .card_dish_wrapIcon {
   transform: rotate(0);
 }
-.group_card .card_dish_icon {
-  color: #99E2D0;
+.group-cards .card_user_link-profil_icon {
+  color: black;
 }
-.group_card .card__body {
+.group-cards .card_user__body {
   display: flex;
   justify-content: space-between;
 }
-.group_card .card__body__core {
+.group-cards .card_user__body__core {
   padding: 10px;
 }
-.group_card .card__body__core__title {
+.group-cards .card_user__body__core__title {
   font-size: 0.8em;
   font-weight: 900;
   margin-bottom: 4px;
 }
-.group_card .card__body__core__text {
+.group-cards .card_user__body__core__text {
   font-size: 0.7em;
 }
-.group_card .card__body .favory {
+.group-cards .card_user__body .favory {
   border: none;
   outline: none;
   z-index: 1;
@@ -405,7 +417,7 @@ section {
   width: 50px;
   font-size: 1.5em;
 }
-.group_card .card__body .favory--empty {
+.group-cards .card_user__body .favory--empty {
   position: relative;
   overflow: hidden;
   width: 30px;
@@ -413,42 +425,42 @@ section {
   z-index: 1;
   transition: color 1000ms ease-out;
 }
-.group_card .card__body .favory--empty:hover {
-  color: #9356DC;
+.group-cards .card_user__body .favory--empty:hover {
+  color: #D3573C;
 }
-.group_card .card__body .favory--empty:hover + .favory--full {
+.group-cards .card_user__body .favory--empty:hover + .favory--full {
   opacity: 1;
   transform: scale(1);
 }
-.group_card .card__body .favory--full {
+.group-cards .card_user__body .favory--full {
   position: absolute;
   opacity: 0;
   transform: scale(0);
   transition: all 1000ms ease-out;
   transform-origin: bottom;
-  color: #9356DC;
+  color: #D3573C;
 }
-.group_card .card__body .favory--full:hover {
+.group-cards .card_user__body .favory--full:hover {
   opacity: 1;
   transform: scale(1);
 }
-.group_card .card__body .favory--full:hover + .favory--empty {
-  color: #9356DC;
+.group-cards .card_user__body .favory--full:hover + .favory--empty {
+  color: #D3573C;
 }
-.group_card .card__image {
+.group-cards .card_user__image {
   display: flex;
   align-items: center;
   overflow: hidden;
   width: 100%;
 }
-.group_card .card__image img {
+.group-cards .card_user__image img {
   width: inherit;
 }
-.group_card .card--new {
+.group-cards .card_user--new {
   position: absolute;
   top: 10px;
   right: 15px;
-  background-color: #99E2D0;
+  background-color: black;
   padding: 5px 10px;
   font-size: 0.7em;
   z-index: 2;
@@ -489,7 +501,7 @@ section {
   transition: color 1000ms ease-out;
 }
 .menu__title .favory--empty:hover {
-  color: #9356DC;
+  color: #D3573C;
 }
 .menu__title .favory--empty:hover + .favory--full {
   opacity: 1;
@@ -501,14 +513,14 @@ section {
   transform: scale(0);
   transition: all 1000ms ease-out;
   transform-origin: bottom;
-  color: #9356DC;
+  color: #D3573C;
 }
 .menu__title .favory--full:hover {
   opacity: 1;
   transform: scale(1);
 }
 .menu__title .favory--full:hover + .favory--empty {
-  color: #9356DC;
+  color: #D3573C;
 }
 .menu__core {
   background-color: white;
@@ -721,213 +733,13 @@ section {
   }
 }
 
-.entete {
+.index h1 {
+  position: absolute;
+  width: 25%;
+  right: 0;
+  top: 0;
   text-align: center;
-  align-items: center;
-  display: flex;
-  flex: 100%;
-  flex-direction: column;
-  background-color: whitesmoke;
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
-}
-.entete .card:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-}
-.entete .card:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4s, 1s;
-}
-.entete .card:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5s, 1s;
-}
-.entete .card:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6s, 1s;
-}
-.entete .card:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 7s, 1s;
-}
-.entete h3 {
-  width: 60%;
-}
-.entete p {
-  width: 85%;
-  margin: 5px;
-  font-weight: 300;
-}
-
-.fonctionnement {
-  flex: 1;
-  max-width: 400px;
-  min-width: 300px;
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
-}
-.fonctionnement .card:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-}
-.fonctionnement .card:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4s, 1s;
-}
-.fonctionnement .card:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5s, 1s;
-}
-.fonctionnement .card:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6s, 1s;
-}
-.fonctionnement .card:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 7s, 1s;
-}
-@media screen and (max-width: 730px) {
-  .fonctionnement {
-    margin: auto;
-  }
-}
-
-.localisation {
-  text-align: center;
-  padding: 10px;
-  background-color: #ebebeb;
-  font-size: 0.9em;
-  width: 100%;
-  position: relative;
-  top: -30px;
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
-}
-.localisation .card:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-}
-.localisation .card:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4s, 1s;
-}
-.localisation .card:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5s, 1s;
-}
-.localisation .card:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6s, 1s;
-}
-.localisation .card:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 7s, 1s;
-}
-.localisation i {
-  margin-right: 10px;
-}
-
-.restaurant {
-  flex: 1;
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-  /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
-}
-.restaurant .card:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3s, 1s;
-}
-.restaurant .card:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4s, 1s;
-}
-.restaurant .card:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5s, 1s;
-}
-.restaurant .card:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6s, 1s;
-}
-.restaurant .card:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 2s, appear 2s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 7s, 1s;
+  padding: 60px 60px 0 60px;
 }
 
 /*# sourceMappingURL=style.css.map */

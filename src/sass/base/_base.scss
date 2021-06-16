@@ -17,11 +17,6 @@ main {
 a {
     text-decoration: none;
     color: inherit;
-    position: relative;
-}
-
-.center {
-    text-align: center
 }
 
 section {
@@ -34,11 +29,11 @@ section {
     }
 
     &-1 {
-        margin-bottom: $spacer *0.25 !important;
+        margin-bottom: $spacer * 0.25 !important;
     }
 
     &-2 {
-        margin-bottom: $spacer *0.5 !important;
+        margin-bottom: $spacer * 0.5 !important;
     }
 
     &-3 {
@@ -84,11 +79,11 @@ section {
     }
 
     &-1 {
-        margin-top: $spacer *0.25 !important;
+        margin-top: $spacer * 0.25 !important;
     }
 
     &-2 {
-        margin-top: $spacer *0.5 !important;
+        margin-top: $spacer * 0.5 !important;
     }
 
     &-3 {
@@ -128,7 +123,55 @@ section {
     }
 }
 
-.img_user{
+img {
     width: 50px;
     height: 50px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1200px) {
+        flex-direction: column;
+    }
+
+
+    #nav {
+        width: 50%;
+        padding: 60px 60px 0 60px;
+
+        @media screen and (max-width: 1200px) {
+            width: 100%;
+        }
+    }
+
+    .empty {
+        width: 25%;
+        padding: 60px 60px 0 60px;
+    }
+
+    .home {
+        width: 25%;
+        padding: 60px 60px 0 60px;
+        text-align: center;
+        img {
+            width: 200px;
+            height: 50px;
+        }
+    }
+
+    #back-home {
+        position: fixed;
+        margin: 20px 45%;
+        width: 10%;
+        padding: 7px;
+        background-color: $bgcolor-secondary;
+        text-align: center;
+        border-radius: 10px;
+        font-weight: bold;
+        @include box-shadow;
+        display: none;
+    }
 }

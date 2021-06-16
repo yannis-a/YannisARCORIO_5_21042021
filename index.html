@@ -12,17 +12,18 @@
 </head>
 
 <body>
-    <header aria-label="header" role="banner">
-        <a href="index.html" title="HomePage">
-            <img src="src/img/logo.png" alt="FishEye Home Page">
+    <header aria-label="header" role="banner" id="banner">
+        <div id="back-home"><a  href="#banner">Passer au contenu</a></div>
+        <a class="home" href="index.html" title="HomePage">
+            <img src="src/img/logo.svg" id="logo" alt="FishEye Home Page">
         </a>
-        <nav aria-label="photographer categories" role="navigation" class="filters">
-            <ul id="filter-tags" class="tags"></ul>
+        <nav aria-label="photographer categories" role="navigation" class="tags" id="nav">
+            <ul></ul>
         </nav>
-        <h1>Nos photographes</h1>
+         <div class="empty"></div>
     </header>
-    <main role="main">
-        <a id="back-home" href="#photographers">Passer au contenu</a>
+    <main role="main" class="index">
+        <h1>Nos photographes</h1>
         <section class="group-cards" id="photographers" aria-label="photographers"></section>
     </main>
 </body>

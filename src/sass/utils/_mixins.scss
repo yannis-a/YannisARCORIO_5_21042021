@@ -1,9 +1,13 @@
+@mixin secondary {
+    background-color: #FAFAFA;
+    color: #525252;
+}
 
 @mixin box-shadow($intensity: 0.4) {
     box-shadow: 4px 4px 8px 0 rgba(0,0,0,$intensity);
 }
 
-@mixin lg-background-color($colour1: $colour-primary, $colour2: $colour-secondary, $angle: -10deg) {
+@mixin lg-background-color($colour1: $color-primary, $colour2: $color-secondary, $angle: -10deg) {
     background: linear-gradient($angle, $colour1 0%, $colour2 100%);
 }
 
@@ -32,7 +36,7 @@
         transition: color 1000ms ease-out;
 
         &:hover {
-            color: $colour-primary;
+            color: $color-primary;
 
             + .favory--full {
                 opacity: 1;
@@ -47,14 +51,14 @@
         transform: scale(0);
         transition: all 1000ms ease-out;
         transform-origin: bottom;
-        color: $colour-primary;
+        color: $color-primary;
 
         &:hover {
             opacity: 1;
             transform: scale(1);
 
             & + .favory--empty {
-                color: $colour-primary;
+                color: $color-primary;
             }
         }
     }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/css/style.css" rel="stylesheet" type="text/css">
     <title>FishEye</title>
     <script src="node_modules\jquery\dist\jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/f4e9387bdc.js" crossorigin="anonymous"></script>
@@ -11,14 +12,16 @@
 </head>
 
 <body>
-    <header aria-label="header" role="banner">
-        <a href="index.html" title="HomePage"><img src="src/img/logo.png" alt="FishEye Home Page"></a>
+    <header aria-label="header" role="banner" id="banner">
+        <a class="home" href="index.html" title="HomePage">
+            <img src="src/img/logo.svg" id="logo" alt="FishEye Home Page">
+        </a>
     </header>
     <main>
         <!-- HEADER -->
-        <header id="profil" aria-label="photographer information">
+        <div id="profil" aria-label="photographer information">
             <section id="profil-header"></section>
-        </header>
+        </div>
 
         <!-- DROPDOWN -->
         <div class="works-sort">

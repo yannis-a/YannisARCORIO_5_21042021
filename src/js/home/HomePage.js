@@ -7,13 +7,16 @@ export default class HomePage {
       photographers.forEach((photographer) => {
         var urlImg = "src/Sample Photos/Photos profil/" + photographer.portrait;
         var tags = "";
+        let d = '#';
         photographer.tags.forEach(tag => {
-          tags += '<span class="tag">' + tag + '</span>'
+          tags += '<li class="tag"><a>' + d.italics() + new Utils().toUpperCaseFirst(tag) + '</a></li>'
         })
         $("#photographers").append(
-          $('<article></article>').addClass('card card_user ' + photographer.tags.join(' ')).append(
-            $('<a href="photographers.html?id=' + photographer.id + '" title="' + photographer.name + '"></a>').addClass('link_user-profil').append(
-              $('<img></img>').attr('src', urlImg).addClass('img_user'),
+          $('<article></article>').addClass('card_user ' + photographer.tags.join(' ')).append(
+            $('<a href="photographers.html?id=' + photographer.id + '" title="' + photographer.name + '"></a>').addClass('card_user_link-profil').append(
+              $('<div class="img_user"></div>').append(
+                $('<img></img>').attr('src', urlImg).addClass('img')
+              ),
               $('<h2>' + photographer.name + '</h2>').addClass('name_user')
             ),
             $('<div></div>').addClass('text_user').append(
@@ -21,9 +24,13 @@ export default class HomePage {
               $('<p>' + photographer.tagline + '</p>').addClass('tagline_user'),
               $('<p>' + photographer.price + '€/jour</p>').addClass('price_user')
             ),
-            $('<div></div>').addClass('tags tags_user').append(
-              tags
-            )));
+            $('<div></div>').addClass('tags').append(
+              $('<ul></ul>').append(
+                tags
+              )
+            )
+          )
+        );
       });
     } catch (e) {
       console.log("Error", e);
@@ -33,15 +40,18 @@ export default class HomePage {
   };
 
   getTags(data) {
-    let tags = data.tags
+    let tags = data.tags;
+    let d = '#';
     try {
       tags.forEach(tag => {
-        $('#filter-tags').append(
-          $('<li></li>').addClass('tag').attr('data-filter', tag)).append(
-            $('<a>' + tag + '</a>').attr('href', '#'));
+        $('#nav ul').append(
+          $('<li></li>').addClass('tag').attr('data-filter', tag).append(
+            $('<a></a>').attr('href', '#').append(d.italics() + new Utils().toUpperCaseFirst(tag))));
       });
     } catch (e) {
       console.log("Error", e);
     }
   };
 }
+
+
