@@ -1,11 +1,10 @@
 import Utils from '../Utils/Utils.js';
 
 export default class HomePage {
-  getPhotographers(data) {
+  async getPhotographers(data) {
     let photographers = data.photographers;
     try {
       photographers.forEach((photographer) => {
-        var urlImg = "src/Sample Photos/Photos profil/" + photographer.portrait;
         var tags = "";
         let d = '#';
         photographer.tags.forEach(tag => {
@@ -14,9 +13,7 @@ export default class HomePage {
         $("#photographers").append(
           $('<article></article>').addClass('card_user ' + photographer.tags.join(' ')).append(
             $('<a href="photographers.html?id=' + photographer.id + '" title="' + photographer.name + '"></a>').addClass('card_user_link-profil').append(
-              $('<div class="img_user"></div>').append(
-                $('<img></img>').attr('src', urlImg).addClass('img')
-              ),
+              $('<div class="img_user ' + photographer.id + '"></div>'),
               $('<h2>' + photographer.name + '</h2>').addClass('name_user')
             ),
             $('<div></div>').addClass('text_user').append(
@@ -37,6 +34,7 @@ export default class HomePage {
     }
     new Utils().filterTags();
     new Utils().scrollButton();
+    return photographers;
   };
 
   getTags(data) {

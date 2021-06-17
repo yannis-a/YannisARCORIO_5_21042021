@@ -14,9 +14,24 @@ import Utils from './utils/Utils.js'
             return
         };
         // sinon on charge la homepage
-        new HomePage().getPhotographers(data);
+        new HomePage().getPhotographers(data).then(p => {
+            p.forEach(e => {
+                var urlImg = "src/Sample Photos/Photos profil/" + e.portrait;
+                var img = new Image();
+                img.src = urlImg;
+
+                if (img.height <= img.width) {
+                    $('.' + e.id).addClass('imgP')
+                } else if (img.height > img.width) {
+                    $('.' + e.id).addClass('imgL')
+                };
+                
+                $('.' + e.id).append(
+                    img
+                );
+            });
+        }).catch(e => console.log('error load photographers :' + e));
         new HomePage().getTags(data);
-        new HomePage().autoSizeImg();
     }).catch(e => {
         console.error('Failed to load DataFishEye :' + e);
     })
