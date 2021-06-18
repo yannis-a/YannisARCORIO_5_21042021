@@ -2,7 +2,6 @@
     @include btn;
 
     &__principal {
-        @include lg-background-color();
         color: white;
         padding-left: 15px;
         padding-right: 15px;
@@ -13,7 +12,6 @@
 
         &:hover {
             @include box-shadow(0.8);
-            @include lg-background-color($color-primary,lighten($color-secondary, 10%));
         }
     }
 

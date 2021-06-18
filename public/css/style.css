@@ -185,18 +185,6 @@ header .home img {
   width: 200px;
   height: 50px;
 }
-header #back-home {
-  position: fixed;
-  margin: 20px 45%;
-  width: 10%;
-  padding: 7px;
-  background-color: #D3573C;
-  text-align: center;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-  display: none;
-}
 
 * {
   font-family: "Roboto", sans-serif;
@@ -214,18 +202,16 @@ h1 {
   position: relative;
 }
 .btn__principal {
-  background: linear-gradient(-10deg, #D3573C 0%, #901C1C 100%);
   color: white;
   padding-left: 15px;
   padding-right: 15px;
   height: 50px;
   border-radius: 25px;
   font-size: 1em;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -4px -4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 .btn__principal:hover {
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8);
-  background: linear-gradient(-10deg, #D3573C 0%, #bb2424 100%);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8), -4px -4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 .btn--thin {
   width: 50%;
@@ -243,7 +229,7 @@ h1 {
   display: flex;
   border-radius: 25px;
   align-items: center;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -4px -4px 8px 0 rgba(0, 0, 0, 0.4);
   margin: 0 20px 20px 20px;
   z-index: 1;
   position: relative;
@@ -299,22 +285,38 @@ h1 {
 
 .tags {
   margin: auto;
-  width: 50%;
+  width: 100%;
   font-size: small;
 }
 .tags ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+}
+.tags ul .tag-link {
+  color: #901C1C;
+  border-radius: 10px;
+  border: 1px solid #901C1C;
+  list-style: none;
+  margin: 5px;
+}
+.tags ul .tag-link li {
+  margin: 2px 5px;
+  text-align: center;
+}
+.tags ul .tag-link:hover, .tags ul .tag-link:focus {
+  background-color: #901C1C;
+  color: white;
 }
 .tags ul .tag {
   color: #901C1C;
   border-radius: 10px;
   border: 1px solid #901C1C;
   list-style: none;
-}
-.tags ul .tag a {
   margin: 5px;
+}
+.tags ul .tag li {
+  margin: 2px 5px;
   text-align: center;
 }
 
@@ -324,17 +326,18 @@ h1 {
   flex-flow: wrap row;
 }
 .group-cards .card_user {
-  margin: 0 20px 20px 20px;
+  margin: 30px 20px 20px 20px;
+  padding: 20px;
   transition: 0.3s;
   border-radius: 10px;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 25%;
+  width: 22%;
 }
 .group-cards .card_user:hover {
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1), -4px -4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 .group-cards .card_user_link-profil {
   text-align: center;
@@ -345,7 +348,7 @@ h1 {
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
-  margin: auto;
+  margin: 20px auto;
 }
 .group-cards .card_user_link-profil .imgL img {
   position: absolute;
@@ -361,114 +364,25 @@ h1 {
   width: auto;
   height: 100%;
 }
-.group-cards .card_user_link-profil_price {
-  font-weight: bold;
-  font-size: 0.9em;
-  align-self: flex-end;
-}
-.group-cards .card_user_link-profil_confirmation {
-  background-color: black;
-  margin: -1em -6em -1em 2em;
-  width: 5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: 0.5s;
-}
-.group-cards .card_user_link-profil:hover .card_dish_confirmation {
-  margin-right: -1em;
-}
-.group-cards .card_user_link-profil_wrapIcon {
-  height: 1.6em;
-  width: 1.6em;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100px;
-  transform: rotate(-180deg);
-  transition-duration: 0.7s;
-}
-.group-cards .card_user_link-profil:hover .card_dish_wrapIcon {
-  transform: rotate(0);
-}
-.group-cards .card_user_link-profil_icon {
-  color: black;
-}
-.group-cards .card_user__body {
-  display: flex;
-  justify-content: space-between;
-}
-.group-cards .card_user__body__core {
-  padding: 10px;
-}
-.group-cards .card_user__body__core__title {
-  font-size: 0.8em;
-  font-weight: 900;
-  margin-bottom: 4px;
-}
-.group-cards .card_user__body__core__text {
-  font-size: 0.7em;
-}
-.group-cards .card_user__body .favory {
-  border: none;
-  outline: none;
-  z-index: 1;
-  position: relative;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 50px;
-  font-size: 1.5em;
-}
-.group-cards .card_user__body .favory--empty {
-  position: relative;
-  overflow: hidden;
-  width: 30px;
-  height: 30px;
-  z-index: 1;
-  transition: color 1000ms ease-out;
-}
-.group-cards .card_user__body .favory--empty:hover {
+.group-cards .card_user_link-profil h2 {
+  font-weight: 400;
   color: #D3573C;
+  margin: 2px;
+  font-size: xx-large;
 }
-.group-cards .card_user__body .favory--empty:hover + .favory--full {
-  opacity: 1;
-  transform: scale(1);
+.group-cards .card_user .text_user {
+  text-align: center;
 }
-.group-cards .card_user__body .favory--full {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 1000ms ease-out;
-  transform-origin: bottom;
+.group-cards .card_user .text_user > * {
+  margin: 3px;
+}
+.group-cards .card_user .text_user .loc_user {
+  color: #901C1C;
+  font-size: larger;
+  margin: 3px;
+}
+.group-cards .card_user .text_user .price_user {
   color: #D3573C;
-}
-.group-cards .card_user__body .favory--full:hover {
-  opacity: 1;
-  transform: scale(1);
-}
-.group-cards .card_user__body .favory--full:hover + .favory--empty {
-  color: #D3573C;
-}
-.group-cards .card_user__image {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  width: 100%;
-}
-.group-cards .card_user__image img {
-  width: inherit;
-}
-.group-cards .card_user--new {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background-color: black;
-  padding: 5px 10px;
-  font-size: 0.7em;
-  z-index: 2;
 }
 
 .menu {
@@ -736,6 +650,20 @@ h1 {
     position: fixed;
     left: 0;
   }
+}
+
+#back-home {
+  position: fixed;
+  margin: 20px 45%;
+  width: 10%;
+  padding: 7px;
+  background-color: #D3573C;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -4px -4px 8px 0 rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 10;
 }
 
 .index h1 {

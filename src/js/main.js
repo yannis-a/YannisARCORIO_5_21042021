@@ -16,6 +16,7 @@ import Utils from './utils/Utils.js'
         // sinon on charge la homepage
         new HomePage().getPhotographers(data).then(p => {
             p.forEach(e => {
+                // chargement de l'image profil et la redimention correctement
                 var urlImg = "src/Sample Photos/Photos profil/" + e.portrait;
                 var img = new Image();
                 img.src = urlImg;

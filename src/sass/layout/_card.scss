@@ -4,14 +4,15 @@
     flex-flow: wrap row;
 
     .card_user {
-        margin: 0 20px 20px 20px;
+        margin: 30px 20px 20px 20px;
+        padding: 20px;
         transition: 0.3s;
         border-radius: 10px;
-        height: 500px;
+        height: 400px;
         display: flex;
         flex-direction: column;
         position: relative;
-        width: 25%;
+        width: 22%;
 
         &:hover {
             @include box-shadow(0.1);
@@ -26,7 +27,7 @@
                 height: 200px;
                 overflow: hidden;
                 border-radius: 50%;
-                margin: auto;
+                margin: 20px auto;
             }
             .imgL {
                 img {
@@ -48,89 +49,26 @@
                 }
             }
 
-            &_price {
-                font-weight: bold;
-                font-size: 0.9em;
-                align-self: flex-end;
-            }
-
-            &_confirmation {
-                background-color: black;
-                margin: -1em -6em -1em 2em;
-                width: 5em;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition-duration: 0.5s;
-            }
-
-            &:hover .card_dish_confirmation {
-                margin-right: -1em;
-            }
-
-            &_wrapIcon {
-                height: 1.6em;
-                width: 1.6em;
-                background-color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 100px;
-                transform: rotate(-180deg);
-                transition-duration: 0.7s;
-            }
-
-            &:hover .card_dish_wrapIcon {
-                transform: rotate(0);
-            }
-
-            &_icon {
-                color: black;
+            h2 {
+                @include name-user;
             }
         }
 
-        &__body {
-            display: flex;
-            justify-content: space-between;
+        .text_user {
+            text-align: center;
 
-            &__core {
-                padding: 10px;
-
-                &__title {
-                    font-size: 0.8em;
-                    font-weight: 900;
-                    margin-bottom: 4px;
-                }
-
-                &__text {
-                    font-size: 0.7em;
-                }
+            & > * {
+                margin: 3px;
+            }
+            .loc_user {
+                color: $color-secondary;
+                font-size: larger;
+                margin: 3px;
             }
 
-            .favory {
-                @include favory;
+            .price_user {
+                color: $color-primary;
             }
-        }
-
-        &__image {
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-
-            img {
-                width: inherit;
-            }
-        }
-
-        &--new {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background-color: black;
-            padding: 5px 10px;
-            font-size: 0.7em;
-            z-index: 2;
         }
     }
 }

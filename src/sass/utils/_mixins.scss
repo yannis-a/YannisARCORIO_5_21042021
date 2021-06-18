@@ -1,14 +1,30 @@
 @mixin secondary {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     color: #525252;
 }
 
 @mixin box-shadow($intensity: 0.4) {
-    box-shadow: 4px 4px 8px 0 rgba(0,0,0,$intensity);
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, $intensity), -4px -4px 8px 0 rgba(0, 0, 0, $intensity);
 }
 
-@mixin lg-background-color($colour1: $color-primary, $colour2: $color-secondary, $angle: -10deg) {
-    background: linear-gradient($angle, $colour1 0%, $colour2 100%);
+@mixin tag {
+    color: $color-secondary;
+    border-radius: 10px;
+    border: 1px solid $color-secondary;
+    list-style: none;
+    margin: 5px;
+
+    li {
+        margin: 2px 5px;
+        text-align: center;
+    }
+}
+
+@mixin name-user {
+    font-weight: 400;
+    color: $color-primary;
+    margin: 2px;
+    font-size: xx-large;
 }
 
 @mixin btn {
@@ -69,19 +85,19 @@
     $k: 0;
 
     @for $i from 0 through 3 {
-        $k: $k+$i;
+        $k: $k + $i;
 
         & .menu__part:nth-child(#{$i}) {
             /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
             @for $j from 0 through 5 {
-                $k: $k+$j;
+                $k: $k + $j;
 
                 & .card_dish:nth-child(#{$j}) {
                     transform: scale(0);
                     animation: popOn 1s;
-                    animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
+                    animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
                     animation-fill-mode: both;
-                    animation-delay: 0.1s*$k;
+                    animation-delay: 0.1s * $k;
                 }
             }
         }
@@ -91,7 +107,7 @@
 @mixin pop-restaurant {
     transform: scale(0);
     animation: popOn 2s, appear 2s;
-    animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
+    animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
     animation-fill-mode: both;
     animation-delay: 3s, 1s;
     /* jusqu'a 3 : valeur a changer en fonction du nombre de restaurant */
@@ -99,9 +115,9 @@
         & .card:nth-child(#{$j}) {
             transform: scale(0);
             animation: popOn 2s, appear 2s;
-            animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
+            animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
             animation-fill-mode: both;
-            animation-delay: 3s+$j, 1s;
+            animation-delay: 3s + $j, 1s;
         }
     }
 }

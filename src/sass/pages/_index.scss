@@ -1,5 +1,19 @@
+#back-home {
+    position: fixed;
+    margin: 20px 45%;
+    width: 10%;
+    padding: 7px;
+    background-color: $bgcolor-secondary;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    @include box-shadow;
+    display: none;
+    z-index: 10;
+}
+
 .index {
-    h1{
+    h1 {
         position: absolute;
         width: 25%;
         right: 0;
