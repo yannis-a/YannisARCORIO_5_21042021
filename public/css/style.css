@@ -299,12 +299,14 @@ h1 {
   border: 1px solid #901C1C;
   list-style: none;
   margin: 5px;
+  z-index: 1;
 }
 .tags ul .tag-link li {
+  z-index: -1;
   margin: 2px 5px;
   text-align: center;
 }
-.tags ul .tag-link:hover, .tags ul .tag-link:focus {
+.tags ul .tag-link:hover {
   background-color: #901C1C;
   color: white;
 }
@@ -314,8 +316,10 @@ h1 {
   border: 1px solid #901C1C;
   list-style: none;
   margin: 5px;
+  z-index: 1;
 }
 .tags ul .tag li {
+  z-index: -1;
   margin: 2px 5px;
   text-align: center;
 }
@@ -324,6 +328,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   flex-flow: wrap row;
+  width: 100%;
 }
 .group-cards .card_user {
   margin: 30px 20px 20px 20px;
@@ -335,6 +340,7 @@ h1 {
   flex-direction: column;
   position: relative;
   width: 22%;
+  min-width: 22%;
 }
 .group-cards .card_user:hover {
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1), -4px -4px 8px 0 rgba(0, 0, 0, 0.1);

@@ -32,7 +32,7 @@ export default class HomePage {
     } catch (e) {
       console.log("Error", e);
     }
-    new Utils().filterTags();
+    new Utils().selectByTags();
     new Utils().scrollButton();
     return photographers;
   };
@@ -43,8 +43,8 @@ export default class HomePage {
     try {
       tags.forEach(tag => {
         $('#nav ul').append(
-          $('<a></a>').addClass('tag-link').attr('data-filter', tag).attr('href', '#').append(
-            $('<li></li>').append(d.italics() + new Utils().toUpperCaseFirst(tag))));
+          $('<a></a>').addClass('tag-link').attr('href', '#').append(
+            $('<li></li>').attr('data-filter', tag).append(d.italics() + new Utils().toUpperCaseFirst(tag))));
       });
     } catch (e) {
       console.log("Error", e);

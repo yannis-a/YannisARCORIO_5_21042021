@@ -71,17 +71,17 @@ export default class Utils {
     };
 
 
-    filterTags() {
-        let filtres = document.querySelector('#nav');
+    selectByTags() {
         let articles = document.querySelectorAll('.card_user');
+        let filters = document.querySelector('#nav ul');
 
         // listener on click filters
-        filtres.click(event => {
+        filters.addEventListener('click', event => {
             let classValue = event.target.classList.value;
-            if (-1 === classValue.indexOf('actived')) {
-                event.target.classList.add('actived')
+            if (-1 === classValue.indexOf('activated')) {
+                event.target.classList.add('activated')
             } else {
-                event.target.classList.remove('actived')
+                event.target.classList.remove('activated')
             }
             this.diplayArticle(articles);
         });
@@ -100,18 +100,16 @@ export default class Utils {
 
     // compare if filters activated has the same value as the photographers tags    
     isAvtivatedFilters(article) {
-        let filters = this.getActivatedFilters();
-        let classValue = article.classList.value;
-        let classes = classValue.split(' ');
-        let intersection = filters.filter(
-            tag => classes.includes(tag)
-        );
-        return intersection.length == filters.length;
+        let filtersActivated = this.getActivatedFilters();
+        console.log(filtersActivated)
+        let usersTags = article.classList.value.split(' ');
+        let commonTag = filtersActivated.filter(tag => usersTags.includes(tag));
+        return commonTag.length >= 1 || filtersActivated.length == 0;
     };
 
     // return string[] filters with the 'actived' class    
     getActivatedFilters() {
-        let currentFilters = document.querySelectorAll('ul li.actived');
+        let currentFilters = document.querySelectorAll('#nav ul a li.activated');
         let filterSelected = [];
 
         currentFilters.forEach(currentFilter => {

@@ -11,8 +11,7 @@
         .tag-link {
             @include tag;
 
-            &:hover,
-            &:focus {
+            &:hover{
                 background-color: $bgcolor-primary;
                 color: white;
             }
