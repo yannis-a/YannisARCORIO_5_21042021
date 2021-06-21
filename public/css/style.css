@@ -342,6 +342,17 @@ h1 {
   color: white;
 }
 
+#form-modal {
+  position: fixed;
+  background-color: #D3573C;
+  margin: auto;
+  right: 30%;
+  left: 30%;
+  height: 70%;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2), -4px -4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 .group-cards {
   display: flex;
   justify-content: space-evenly;

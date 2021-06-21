@@ -15,13 +15,13 @@ export default class Modal {
 
     // ouvre la modal
     launchModal() {
-        let modalbg = document.getElementById("form-dialog");
+        let modalbg = document.getElementById("form-modal");
         modalbg.style.display = 'block';
     };
 
     // ferme la modal
     closeModal() {
-        let modalbg = document.getElementById("form-dialog");
+        let modalbg = document.getElementById("form-modal");
         modalbg.style.display = 'none';
     };
 
