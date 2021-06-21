@@ -1,3 +1,4 @@
+import { timers } from 'jquery';
 import Data from './data/Data.js';
 import HomePage from './home/HomePage.js';
 import Profil from './photographers/Profil.js';
@@ -20,13 +21,12 @@ import Utils from './utils/Utils.js'
                 var urlImg = "src/Sample Photos/Photos profil/" + e.portrait;
                 var img = new Image();
                 img.src = urlImg;
-
                 if (img.height <= img.width) {
                     $('.' + e.id).addClass('imgP')
                 } else if (img.height > img.width) {
                     $('.' + e.id).addClass('imgL')
                 };
-                
+
                 $('.' + e.id).append(
                     img
                 );

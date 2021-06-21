@@ -6,9 +6,8 @@ export default class HomePage {
     try {
       photographers.forEach((photographer) => {
         var tags = "";
-        let d = '#';
         photographer.tags.forEach(tag => {
-          tags += '<a class="tag"><li>' + d.italics() + new Utils().toUpperCaseFirst(tag) + '</li></a>'
+          tags += '<a class="tag"><li>' + new Utils().toUpperCaseFirst(tag) + '</li></a>'
         })
         $("#photographers").append(
           $('<article></article>').addClass('card_user ' + photographer.tags.join(' ')).append(
@@ -39,12 +38,11 @@ export default class HomePage {
 
   getTags(data) {
     let tags = data.tags;
-    let d = '#';
     try {
       tags.forEach(tag => {
         $('#nav ul').append(
           $('<a></a>').addClass('tag-link').attr('href', '#').append(
-            $('<li></li>').attr('data-filter', tag).append(d.italics() + new Utils().toUpperCaseFirst(tag))));
+            $('<li></li>').attr('data-filter', tag).append(new Utils().toUpperCaseFirst(tag))));
       });
     } catch (e) {
       console.log("Error", e);

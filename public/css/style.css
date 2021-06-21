@@ -295,16 +295,25 @@ h1 {
 }
 .tags ul .tag-link {
   color: #901C1C;
-  border-radius: 10px;
-  border: 1px solid #901C1C;
   list-style: none;
+  border-radius: 10px;
   margin: 5px;
   z-index: 1;
 }
 .tags ul .tag-link li {
   z-index: -1;
-  margin: 2px 5px;
+  padding: 2px 5px;
   text-align: center;
+  border-radius: 10px;
+  border: 1px solid #901C1C;
+}
+.tags ul .tag-link li::before {
+  content: "#";
+  font-style: italic;
+}
+.tags ul .tag-link li.activated {
+  background-color: #901C1C;
+  color: white;
 }
 .tags ul .tag-link:hover {
   background-color: #901C1C;
@@ -312,16 +321,25 @@ h1 {
 }
 .tags ul .tag {
   color: #901C1C;
-  border-radius: 10px;
-  border: 1px solid #901C1C;
   list-style: none;
+  border-radius: 10px;
   margin: 5px;
   z-index: 1;
 }
 .tags ul .tag li {
   z-index: -1;
-  margin: 2px 5px;
+  padding: 2px 5px;
   text-align: center;
+  border-radius: 10px;
+  border: 1px solid #901C1C;
+}
+.tags ul .tag li::before {
+  content: "#";
+  font-style: italic;
+}
+.tags ul .tag li.activated {
+  background-color: #901C1C;
+  color: white;
 }
 
 .group-cards {

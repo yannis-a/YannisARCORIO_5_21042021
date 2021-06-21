@@ -74,7 +74,6 @@ export default class Utils {
     selectByTags() {
         let articles = document.querySelectorAll('.card_user');
         let filters = document.querySelector('#nav ul');
-
         // listener on click filters
         filters.addEventListener('click', event => {
             let classValue = event.target.classList.value;
@@ -101,7 +100,6 @@ export default class Utils {
     // compare if filters activated has the same value as the photographers tags    
     isAvtivatedFilters(article) {
         let filtersActivated = this.getActivatedFilters();
-        console.log(filtersActivated)
         let usersTags = article.classList.value.split(' ');
         let commonTag = filtersActivated.filter(tag => usersTags.includes(tag));
         return commonTag.length >= 1 || filtersActivated.length == 0;
