@@ -195,94 +195,6 @@ h1 {
   font-weight: 400;
 }
 
-.btn {
-  border: none;
-  outline: none;
-  z-index: 1;
-  position: relative;
-}
-.btn__principal {
-  color: white;
-  padding-left: 15px;
-  padding-right: 15px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 1em;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -4px -4px 8px 0 rgba(0, 0, 0, 0.4);
-}
-.btn__principal:hover {
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.8), -4px -4px 8px 0 rgba(0, 0, 0, 0.8);
-}
-.btn--thin {
-  width: 50%;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-}
-.list li {
-  margin-bottom: 10px;
-}
-.list__normal li {
-  display: flex;
-  border-radius: 25px;
-  align-items: center;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -4px -4px 8px 0 rgba(0, 0, 0, 0.4);
-  margin: 0 20px 20px 20px;
-  z-index: 1;
-  position: relative;
-}
-.list__normal li i {
-  margin: 20px;
-  color: grey;
-}
-.list__normal li .text {
-  font-weight: 600;
-}
-.list__normal li .style--round {
-  border-radius: 50%;
-  background-color: #D3573C;
-  color: white;
-  height: 20px;
-  width: 20px;
-  position: relative;
-  right: 5px;
-  display: flex;
-}
-.list__normal li .style--round span {
-  margin: auto;
-}
-.list__normal li:hover .background {
-  opacity: 1;
-}
-.list__normal li:hover i {
-  color: #D3573C;
-}
-.list__normal li .background {
-  border-radius: 25px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #d93939;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 250ms linear;
-}
-
-.loader {
-  color: black;
-  font-size: 20px;
-  margin: 200px auto;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  animation: load 1.4s 2 linear, disappear 4s linear both;
-}
-
 .tags {
   margin: auto;
   width: 100%;
@@ -348,9 +260,69 @@ h1 {
   margin: auto;
   right: 30%;
   left: 30%;
-  height: 70%;
+  height: auto;
+  padding: 10px;
   border-radius: 5px;
+  width: 25%;
+  display: none;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2), -4px -4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+#form-modal form {
+  height: 100%;
+}
+#form-modal form header {
+  height: 15%;
+}
+#form-modal form header h1 {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+#form-modal form header button {
+  border-style: none;
+  outline-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: cursive;
+  font-size: 2rem;
+  color: white;
+  width: 45px;
+  height: 45px;
+}
+#form-modal form header button:hover {
+  border-radius: 5px;
+  border: 2px solid white;
+}
+#form-modal form .formData {
+  display: flex;
+  flex-direction: column;
+}
+#form-modal form .formData > * {
+  height: 30px;
+}
+#form-modal form .formData label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  font-size: 1.2rem;
+}
+#form-modal form .formData input,
+#form-modal form .formData textarea {
+  border-radius: 5px;
+  border-style: hidden;
+}
+#form-modal form .formData textarea {
+  height: 75px;
+}
+#form-modal form .form-submit {
+  margin-top: 10px;
+  border-style: none;
+  border-radius: 5px;
+  outline-style: none;
+  background-color: #901C1C;
+  cursor: pointer;
+  color: white;
+  padding: 12px 25px;
 }
 
 .group-cards {
@@ -420,271 +392,8 @@ h1 {
   color: #D3573C;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-}
-.menu__title {
-  display: flex;
-  justify-content: space-between;
+#profil-header {
   width: 100%;
-  background-color: white;
-  border-radius: 30px 30px 0px 0px;
-  max-width: 500px;
-}
-.menu__title .favory {
-  border: none;
-  outline: none;
-  z-index: 1;
-  position: relative;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 50px;
-  font-size: 1.5em;
-}
-.menu__title .favory--empty {
-  position: relative;
-  overflow: hidden;
-  width: 30px;
-  height: 30px;
-  z-index: 1;
-  transition: color 1000ms ease-out;
-}
-.menu__title .favory--empty:hover {
-  color: #D3573C;
-}
-.menu__title .favory--empty:hover + .favory--full {
-  opacity: 1;
-  transform: scale(1);
-}
-.menu__title .favory--full {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 1000ms ease-out;
-  transform-origin: bottom;
-  color: #D3573C;
-}
-.menu__title .favory--full:hover {
-  opacity: 1;
-  transform: scale(1);
-}
-.menu__title .favory--full:hover + .favory--empty {
-  color: #D3573C;
-}
-.menu__core {
-  background-color: white;
-  max-width: 500px;
-  /* jusqu'a 3 : valeur prise en fonction du nombre parti dans un menu 'entree' 'plat' et 'dessert'*/
-}
-.menu__core > .menu__part {
-  padding: 10px 0px 5px 0px;
-  max-width: 100vw;
-}
-.menu__core .menu__part:nth-child(0) {
-  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 0s;
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 0.1s;
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 0.3s;
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 0.6s;
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 1s;
-}
-.menu__core .menu__part:nth-child(0) .card_dish:nth-child(5) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 1.5s;
-}
-.menu__core .menu__part:nth-child(1) {
-  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 1.6s;
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 1.7s;
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 1.9s;
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 2.2s;
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 2.6s;
-}
-.menu__core .menu__part:nth-child(1) .card_dish:nth-child(5) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3.1s;
-}
-.menu__core .menu__part:nth-child(2) {
-  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3.3s;
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3.4s;
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3.6s;
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 3.9s;
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4.3s;
-}
-.menu__core .menu__part:nth-child(2) .card_dish:nth-child(5) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 4.8s;
-}
-.menu__core .menu__part:nth-child(3) {
-  /* jusqu'a 5 : valeur a changer en fonction du nombre de plat par menu */
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(0) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5.1s;
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(1) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5.2s;
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(2) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5.4s;
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(3) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 5.7s;
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(4) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6.1s;
-}
-.menu__core .menu__part:nth-child(3) .card_dish:nth-child(5) {
-  transform: scale(0);
-  animation: popOn 1s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
-  animation-fill-mode: both;
-  animation-delay: 6.6s;
-}
-.menu__img {
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-}
-@media screen and (max-width: 730px) {
-  .menu__img {
-    height: 180px;
-  }
-}
-.menu__img img {
-  max-width: 100vw;
-}
-@media screen and (min-width: 730px) {
-  .menu__img img {
-    position: fixed;
-    left: 0;
-  }
 }
 
 #back-home {

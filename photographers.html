@@ -19,9 +19,7 @@
     </header>
     <main>
         <!-- HEADER -->
-        <div id="profil" aria-label="photographer information">
-            <section id="profil-header"></section>
-        </div>
+        <section id="profil-header" aria-label="photographer information"></section>
 
         <!-- DROPDOWN -->
         <div class="works-sort">
@@ -50,39 +48,37 @@
         <div id="box" aria-label="photographer likes and price"></div>
 
         <!--MODAL-->
-        <div role="dialog" id="form-modal" aria-label="contact me form" aria-labelledby="form-title"
-            aria-hidden="true">
+        <div role="dialog" id="form-modal" aria-label="contact me form" aria-labelledby="form-name" aria-hidden="true">
             <form action="photographer-page.html" method="POST" id="contact-form">
                 <header aria-label="contact form header">
                     <h1 id="form-title">
                         <span>Contactez-moi</span>
                         <span id="form-name"></span>
                     </h1>
-                    <button id="close-btn" title="Close form" type="button">
-                        <span class="fas fa-times close-form-icon" aria-hidden="true"></span>
+                    <button id="close-form" title="Close Contact Form" type="button">
+                        X
                     </button>
                 </header>
                 <!-- FIRST NAME -->
                 <div class="formData" data-error="Ce champ est obligatoire" data-error-visible="false">
                     <label for="first-name" id="label-firstname">Prénom</label>
-                    <input name="first-name" id="first-name" aria-labelledby="label-firstname" placeholder="Prénom">
+                    <input name="first-name" id="first-name" aria-labelledby="label-firstname">
                 </div>
                 <!-- LAST NAME -->
                 <div class="formData" data-error="Ce champ est obligatoire" data-error-visible="false">
                     <label for="last-name" id="label-lastname">Nom</label>
-                    <input name="last-name" id="last-name" aria-labelledby="label-lastname" placeholder="Nom">
+                    <input name="last-name" id="last-name" aria-labelledby="label-lastname">
                 </div>
                 <!-- EMAIL -->
                 <div class="formData" data-error="Ce champ est obligatoire" data-error-visible="false">
                     <label for="email" id="label-email">Email</label>
-                    <input type="email" name="email" id="email" aria-labelledby="label-email"
-                        placeholder="exemple@email.com">
+                    <input type="email" name="email" id="email" aria-labelledby="label-email">
                 </div>
                 <!-- MESSAGE -->
                 <div class="formData" data-error="Ce champ est obligatoire" data-error-visible="false">
                     <label for="message" id="label-message">Votre message</label>
-                    <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message"
-                        placeholder="Votre message..."></textarea>
+                    <textarea name="your message" id="message" cols="20" rows="5"
+                        aria-labelledby="label-message"></textarea>
                 </div>
                 <!-- SUBMIT -->
                 <input type="submit" value="Envoyer" class="form-submit" title="Send">

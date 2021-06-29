@@ -1,9 +1,76 @@
 #form-modal {
     position: fixed;
     background-color: $bgcolor-secondary;
-    margin: auto;right: 30%;
+    margin: auto;
+    right: 30%;
     left: 30%;
-    height: 70%;
+    height: auto;
+    padding: 10px;
     border-radius: 5px;
+    width: 25%;
+    display: none;
     @include box-shadow(0.2);
+
+    form {
+        height: 100%;
+
+        header {
+            height: 15%;
+
+            h1 {
+                display: flex;
+                flex-direction: column;
+                color: black;
+            }
+
+            button {
+                border-style: none;
+                outline-style: none;
+                background-color: transparent;
+                cursor: pointer;
+                font-family: cursive;
+                font-size: 2rem;
+                color: white;
+                width: 45px;
+                height: 45px;
+
+                &:hover {
+                    border-radius: 5px;
+                    border: 2px solid white;
+                }
+            }
+        }
+
+        .formData {
+            display: flex;
+            flex-direction: column;
+
+            & > * {
+                height: 30px;
+            }
+
+            label {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                font-size: 1.2rem;
+            }
+
+            input,
+            textarea {
+                border-radius: 5px;
+                border-style: hidden;
+            }
+
+            textarea {
+                height: 75px;
+            }
+        }
+
+        .form-submit {
+            margin-top: 10px;
+            @include btn-principal;
+            padding: 12px 25px;
+        }
+    }
 }

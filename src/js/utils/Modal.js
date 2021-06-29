@@ -2,14 +2,14 @@ export default class Modal {
     // ajoute les events onClick sur 'contactez moi' et sur 'x' pour ouvrir et fermer la modal
     init(data) {
         let modalBtn = document.getElementById("contact");
-        let closeBtn = document.getElementsByClassName('close-form-icon');
+        let closeBtn = document.getElementById('close-form');
 
         if (modalBtn) {
             modalBtn.addEventListener('click', this.launchModal);
             this.getPhotographerName(data);
         }
         if (closeBtn) {
-            closeBtn[0].addEventListener('click', this.closeModal);
+            closeBtn.addEventListener('click', this.closeModal);
         }
     };
 
@@ -29,7 +29,7 @@ export default class Modal {
     getPhotographerName(data) {
         let id = window.location.search.split('id=')[1];
         let photographers = !id ? data : data.filter(photographer => photographer.id == id);
-        $('form-name').append(
+        $('#form-name').append(
             photographers[0].name
         );
     };
