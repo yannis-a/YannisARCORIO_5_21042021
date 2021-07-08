@@ -14,14 +14,16 @@ export default class GalleryFactory {
         let currentMediaName = [];
         dataMedia.forEach(element => {
             let mediaHTML = mediaFactory.getMedia(element);
-            
+
             if (id == element.photographerId) {
                 $('#medias').append(
                     $('<article class="media-container"></article>').append(
                         $('<a href="#" title="' + element.title + '"></a>').append(
-                            mediaHTML
+                            $('<div class="media"></div>').append(
+                                mediaHTML
+                            )
                         ),
-                        $('<div class="media-content"></div>').append(
+                        $('<div class="media-infos"></div>').append(
                             $('<h2 class="media-title">' + element.title + '</h2>'),
                             $('<div class="media-like"></div>').append(
                                 $('<span class="media-like-number"></span>').append(

@@ -1,3 +1,64 @@
-#profil-header{
-    width: 100%;
+#profil {
+    #banner {
+        margin-bottom: 50px;
+        .home {
+            width: 0;
+        }
+    }
+
+    .profil-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: flex-start;
+
+        .infos {
+            margin-right: 30px;
+
+            & > * {
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                @include name-user;
+            }
+
+            .city {
+                color: $color-secondary;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 31px;
+            }
+
+            .tagline {
+                color: #525252;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 23px;
+            }
+        }
+
+        #contact {
+            @include btn-principal;
+        }
+
+        .image {
+            @include img-user;
+            .img_user {
+                margin: 0;
+            }
+            flex: 1 1 auto;
+            display: flex;
+            margin-right: 3%;
+            justify-content: flex-end;
+        }
+
+        .tags ul {
+            justify-content: flex-start;
+        }
+    }
 }

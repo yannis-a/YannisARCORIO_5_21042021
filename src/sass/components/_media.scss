@@ -1,0 +1,41 @@
+#medias {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .media-container {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 75px;
+        margin-left: 5%;
+        margin-right: 5%;
+        .media-infos {
+            display: flex;
+            justify-content: space-between;
+            color: $color-secondary;
+            padding: 5px;
+            font-size: 1em;
+
+            .media-like {
+                text-align: end;
+                width: 25%;
+            }
+        }
+        .media {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+    }
+
+    img,
+    video {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+}

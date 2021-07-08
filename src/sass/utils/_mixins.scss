@@ -34,10 +34,12 @@
 }
 
 @mixin name-user {
-    font-weight: 400;
     color: $color-primary;
     margin: 2px;
-    font-size: xx-large;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
 }
 
 @mixin btn-principal {
@@ -47,4 +49,37 @@
     background-color: $bgcolor-primary;
     cursor: pointer;
     color: white;
+    padding: 20px 10px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+@mixin img-user {
+    .img_user {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 20px auto;
+    }
+    .imgL {
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .imgP {
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            height: 100%;
+        }
+    }
 }

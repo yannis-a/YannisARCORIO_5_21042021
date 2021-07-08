@@ -1,3 +1,5 @@
+import GalleryFactory from '../Factory/GalleryFactory.js';
+
 export default class Utils {
     scrollButton() {
         window.addEventListener("scroll", () => {
@@ -11,66 +13,73 @@ export default class Utils {
         });
     };
 
+
+    // dropdown menu
     dropDownMenu(data) {
-        let arrowOpen = $('.sort-btn');
-        let arrowClose = $('.arrow-up-close');
-        let hiddenSort = $('.hidden-sort');
+        let arrowOpen = document.getElementsByClassName('dropdown-btn');
+        let arrowClose = document.getElementsByClassName('arrow-up');
+        let hiddenDropDown = document.getElementsByClassName('hidden-dropdown');
 
         if (arrowOpen) {
-            arrowOpen[0].click(() => {
-                hiddenSort[0].style.display = 'block';
+            arrowOpen[0].addEventListener('click', () => {
+                hiddenDropDown[0].style.display = 'block';
             });
             this.sortMedias(data);
         }
         if (arrowClose) {
-            arrowClose[0].click(() => {
-                hiddenSort[0].style.display = "none";
+            arrowClose[0].addEventListener('click', () => {
+                hiddenDropDown[0].style.display = "none";
             });
         }
-    };
+    }
 
-    // trie des médias par popularité, titre ou date
     sortMedias(data) {
         let mediaArraySort = [];
-        let medias = data.medias;
-        let btnSort = document.querySelector('.sort-btn');
-        let hiddenSort = $('.hidden-sort');
-        let sortBtn = $('.sort').toArray();
+        let media = data.media;
+        let btnSort = document.querySelector('.dropdown-btn');
+        let hiddenSort = document.getElementsByClassName('hidden-dropdown');
+        let sortBtn = Array.from(document.getElementsByClassName('sort'));
 
-        sortBtn.forEach((btn, index) => btn.click(() => {
+        sortBtn.forEach((btn, index) => btn.addEventListener('click', () => {
             hiddenSort[0].style.display = "none";
             if (index == 0) {
                 btnSort.innerHTML = `Popularité`;
-                mediaArraySort = medias.sort((a, b) => {
+
+                mediaArraySort = media.sort((a, b) => {
                     return b.likes - a.likes
                 })
 
             } else if (index == 1) {
                 btnSort.innerHTML = `Date`;
-                mediaArraySort = medias.sort((a, b) => {
-                    return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+
+                mediaArraySort = media.sort((a, b) => {
+                    return new Date(a.date)- new Date(b.date);
                 })
 
             } else if (index == 2) {
                 btnSort.innerHTML = `Titre`;
-                mediaArraySort = medias.sort((a, b) => {
-                    if (a.photoName.toLowerCase() < b.photoName.toLowerCase()) {
+
+                mediaArraySort = media.sort((a, b) => {
+                    if (a.title.toLowerCase() < b.title.toLowerCase()) {
                         return -1;
-                    } else if (a.photoName.toLowerCase() > b.photoName.toLowerCase()) {
+                    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                         return 1;
                     }
                 })
             }
-            this.displaySortMedias(mediaArraySort);
+            this.displaySortMedia(mediaArraySort);
         }));
-    };
+    }
 
-    displaySortMedias(mediaArraySort) {
-        $('#medias').html('');
-        new GalleryFactory().builder(mediaArraySort);
-    };
+    displaySortMedia(mediaArraySort) {
+        document.getElementById("medias").innerHTML = "";
+        new GalleryFactory().getGallery(mediaArraySort);
+    }
 
 
+
+
+    // tags 
     selectByTags() {
         let articles = document.querySelectorAll('.card_user');
         let filters = document.querySelector('#nav ul');
@@ -82,7 +91,7 @@ export default class Utils {
             } else {
                 event.target.classList.remove('activated')
             }
-            this.diplayArticle(articles);
+            this.diplayArticle(articles); 
         });
     };
 

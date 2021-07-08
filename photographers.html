@@ -11,7 +11,7 @@
     <script src="./dist/app.bundle.js"></script>
 </head>
 
-<body>
+<body id="profil">
     <header aria-label="header" role="banner" id="banner">
         <a class="home" href="index.html" title="HomePage">
             <img src="src/img/logo.svg" id="logo" alt="FishEye Home Page">
@@ -22,21 +22,20 @@
         <section id="profil-header" aria-label="photographer information"></section>
 
         <!-- DROPDOWN -->
-        <div class="works-sort">
-            <span id="sort-text">Trier par</span>
-            <div id="sort-wrapper">
-                <button class="sort-btn" aria-haspopup="listbox">Popularité</button>
-                <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
-                <ul class="hidden-sort" role="listbox">
-                    <li class="sort" role='option'>
-                        Popularité <span class="fas fa-chevron-up arrow-up-close"></span>
+        <div class="dropdown">
+            <span id="text">Trier par</span>
+            <div id="wrapper">
+                <button class="dropdown-btn" aria-haspopup="listbox">
+                    <span class="dropdown-btn-text">
+                        Popularité
+                    </span>
+                    <i class="fas fa-chevron-down arrow-down" role='button'></i>
+                </button>
+                <ul class="hidden-dropdown" role="listbox">
+                    <li class="sort" role='option'>Popularité <span class="fas fa-chevron-up arrow-up"></span>
                     </li>
-                    <li class="sort" role='option'>
-                        Date
-                    </li>
-                    <li class="sort" role='option'>
-                        Tître
-                    </li>
+                    <li class="sort" role='option'>Date</li>
+                    <li class="sort" role='option'>Tître</li>
                 </ul>
             </div>
         </div>
