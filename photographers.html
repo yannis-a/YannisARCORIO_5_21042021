@@ -23,16 +23,15 @@
 
         <!-- DROPDOWN -->
         <div class="dropdown">
-            <span id="text">Trier par</span>
-            <div id="wrapper">
-                <button class="dropdown-btn" aria-haspopup="listbox">
-                    <span class="dropdown-btn-text">
-                        Popularité
-                    </span>
-                    <i class="fas fa-chevron-down arrow-down" role='button'></i>
+            <span id="sort-text">Trier par :</span>
+            <div>
+                <button class="drop-btn" aria-haspopup="listbox">
+                    Popularité
+                    <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>
                 </button>
-                <ul class="hidden-dropdown" role="listbox">
-                    <li class="sort" role='option'>Popularité <span class="fas fa-chevron-up arrow-up"></span>
+
+                <ul class="option-sort" role="listbox">
+                    <li class="sort" role='option'>Popularité <span class="fas fa-chevron-up arrow-up-close"></span>
                     </li>
                     <li class="sort" role='option'>Date</li>
                     <li class="sort" role='option'>Tître</li>
@@ -43,8 +42,8 @@
         <!-- MEDIAS -->
         <section id='medias' aria-label='photographer medias'></section>
 
-        <!-- BOX -->
-        <div id="box" aria-label="photographer likes and price"></div>
+        <!-- PRICE -->
+        <div id="price" aria-label="photographer likes and price"></div>
 
         <!--MODAL-->
         <div role="dialog" id="form-modal" aria-label="contact me form" aria-labelledby="form-name" aria-hidden="true">

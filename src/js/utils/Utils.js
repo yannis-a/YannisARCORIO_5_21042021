@@ -16,19 +16,19 @@ export default class Utils {
 
     // dropdown menu
     dropDownMenu(data) {
-        let arrowOpen = document.getElementsByClassName('dropdown-btn');
-        let arrowClose = document.getElementsByClassName('arrow-up');
-        let hiddenDropDown = document.getElementsByClassName('hidden-dropdown');
+        let arrowOpen = document.getElementsByClassName('drop-btn');
+        let arrowClose = document.getElementsByClassName('arrow-up-close');
+        let optionSort = document.getElementsByClassName('option-sort');
 
         if (arrowOpen) {
             arrowOpen[0].addEventListener('click', () => {
-                hiddenDropDown[0].style.display = 'block';
+                optionSort[0].style.display = 'block';
             });
             this.sortMedias(data);
         }
         if (arrowClose) {
             arrowClose[0].addEventListener('click', () => {
-                hiddenDropDown[0].style.display = "none";
+                optionSort[0].style.display = "none";
             });
         }
     }
@@ -36,30 +36,30 @@ export default class Utils {
     sortMedias(data) {
         let mediaArraySort = [];
         let media = data.media;
-        let btnSort = document.querySelector('.dropdown-btn');
-        let hiddenSort = document.getElementsByClassName('hidden-dropdown');
-        let sortBtn = Array.from(document.getElementsByClassName('sort'));
+        let dropBtn = document.querySelector('.drop-btn');
+        let optionSort = document.getElementsByClassName('option-sort');
+        let sort = Array.from(document.getElementsByClassName('sort'));
 
-        sortBtn.forEach((btn, index) => btn.addEventListener('click', () => {
-            hiddenSort[0].style.display = "none";
+        sort.forEach((btn, index) => btn.addEventListener('click', () => {
+            optionSort[0].style.display = "none";
             if (index == 0) {
-                btnSort.innerHTML = `Popularité`;
+                dropBtn.innerHTML = `Popularité <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
-                mediaArraySort = media.sort((a, b) => {
+                mediaArraySort = media.sort((a, b) => { 
                     return b.likes - a.likes
                 })
 
             } else if (index == 1) {
-                btnSort.innerHTML = `Date`;
+                dropBtn.innerHTML = `Date <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
                 mediaArraySort = media.sort((a, b) => {
                     return new Date(a.date)- new Date(b.date);
                 })
 
             } else if (index == 2) {
-                btnSort.innerHTML = `Titre`;
+                dropBtn.innerHTML = `Titre <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
-                mediaArraySort = media.sort((a, b) => {
+                mediaArraySort = media.sort((a, b) => { 
                     if (a.title.toLowerCase() < b.title.toLowerCase()) {
                         return -1;
                     } else if (a.title.toLowerCase() > b.title.toLowerCase()) {

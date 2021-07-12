@@ -8,14 +8,13 @@ export default class MediaBuilder {
         this.getLikesPrice(gallery.totalLike, data.photographers);
         new Subscribe();
     };
-
-    // container with all likes and price
+    
     getLikesPrice(totalLike, photographers) {
         const id = window.location.search.split('id=')[1];
 
         photographers.forEach(element => {
             if (id == element.id) {
-                $('#likes-price').append(
+                $('#price').append(
                     $('<span id="total-likes">' + totalLike + '</span>'),
                     $('<i class="fas fa-heart" aria-label="likes"></i>'),
                     $('<span>' + element.price + ' €/jour </span>')

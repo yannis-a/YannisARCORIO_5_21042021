@@ -1,31 +1,35 @@
 export default class LightBox {
     constructor() {
         this.currentIndex = 0;
-    };
+    }
 
-    // initialize the lightbox when clicking on a media
+    
     init(currentMedia, currentMediaName) {
         let getMedias = Array.from(document.getElementsByClassName('media'));
-        getMedias.forEach((mediaWorks, index) => mediaWorks.click(() => {
+        getMedias.forEach((mediaWorks, index) => mediaWorks.addEventListener("click", () => {
+            let lightBoxMedia = document.getElementById('works-lightbox-media');
+            let lightBoxName = document.getElementById('works-lightbox-name');
             let src = currentMedia[index];
             let nameSrc = currentMediaName[index];
             this.currentIndex = index;
 
-            $('#works-lightbox').css('display', 'block');
-            $('#works-lightbox-media').html(src)
-            $('#works-lightbox-name').html(nameSrc)
+            document.getElementById('works-lightbox').style.display = 'block';
+            lightBoxMedia.innerHTML = `${src}`;
+            lightBoxName.innerHTML = `${nameSrc}`;
         }))
         this.previous(document.querySelector('.left-arrow-lightbox'), currentMedia, currentMediaName);
         this.next(document.querySelector('.right-arrow-lightbox'), currentMedia, currentMediaName);
         this.close();
         this.keyboard(currentMedia, currentMediaName);
         return this
-    };
+    }
 
     // return to previous media
     previous(elt, media, name) {
-        elt.click(() => {
+        elt.addEventListener('click', () => {
             this.currentIndex -= 1;
+            let lightBoxMedia = document.getElementById('works-lightbox-media');
+            let lightBoxName = document.getElementById('works-lightbox-name');
 
             if (this.currentIndex < 0) {
                 this.currentIndex = media.length - 1;
@@ -35,15 +39,17 @@ export default class LightBox {
             let src = media[this.currentIndex];
             let nameSrc = name[this.currentIndex];
 
-            $('#works-lightbox-media').html(src)
-            $('#works-lightbox-name').html(nameSrc)
+            lightBoxMedia.innerHTML = `${src}`;
+            lightBoxName.innerHTML = `${nameSrc}`;
         })
-    };
+    }
 
     // turn to the next media
     next(elt, media, name) {
-        elt.click(() => {
+        elt.addEventListener('click', () => {
             this.currentIndex += 1;
+            let lightBoxMedia = document.getElementById('works-lightbox-media');
+            let lightBoxName = document.getElementById('works-lightbox-name');
 
             if (this.currentIndex > name.length - 1) {
                 this.currentIndex = 0;
@@ -52,25 +58,31 @@ export default class LightBox {
             let src = media[this.currentIndex];
             let nameSrc = name[this.currentIndex];
 
-            $('#works-lightbox-media').html(src)
-            $('#works-lightbox-name').html(nameSrc)
+            lightBoxMedia.innerHTML = `${src}`;
+            lightBoxName.innerHTML = `${nameSrc}`;
         })
-    };
+    }
 
     close() {
-        document.querySelector('.close-lightbox-icon').click(() => {
-            $('#works-lightbox').css('display', 'none');
+        document.querySelector('.close-lightbox-icon').addEventListener('click', () => {
+            let lightbox = document.getElementById('works-lightbox');
+
+            lightbox.style.display = 'none';
         })
-    };
+    }
 
     keyboard(currentMedia, currentMediaName) {
         document.addEventListener('keydown', (key) => {
-            // press 'espace' for close
+            let lightBoxMedia = document.getElementById('works-lightbox-media');
+            let lightBoxName = document.getElementById('works-lightbox-name');
+
+            // ESCAPE TO CLOSE
             if (key.code == "Escape") {
-                $('#works-lightbox').css('display', 'none');
+                let lightBox = document.getElementById('works-lightbox');
+                lightBox.style.display = 'none';
             }
 
-            // press '->' for next
+            // ARROW RIGHT TO STEP RIGHT
             else if (key.code == "ArrowRight") {
                 this.currentIndex += 1;
 
@@ -81,11 +93,11 @@ export default class LightBox {
                 let src = currentMedia[this.currentIndex];
                 let nameSrc = currentMediaName[this.currentIndex];
 
-                $('#works-lightbox-media').html(src)
-                $('#works-lightbox-name').html(nameSrc)
+                lightBoxMedia.innerHTML = `${src}`;
+                lightBoxName.innerHTML = `${nameSrc}`;
             }
 
-            // press '<-' for previous
+            // ARROW LEFT TO STEP LEFT
             else if (key.code == "ArrowLeft") {
                 this.currentIndex -= 1;
 
@@ -97,9 +109,9 @@ export default class LightBox {
                 let src = currentMedia[this.currentIndex];
                 let nameSrc = currentMediaName[this.currentIndex];
 
-                $('#works-lightbox-media').html(src)
-                $('#works-lightbox-name').html(nameSrc)
+                lightBoxMedia.innerHTML = `${src}`;
+                lightBoxName.innerHTML = `${nameSrc}`;
             }
         });
-    };
+    }
 }
