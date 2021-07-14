@@ -1,12 +1,10 @@
 import GalleryFactory from '../factory/GalleryFactory.js';
-import Subscribe from './Subscribe.js';
 
 export default class MediaBuilder {
     getMedias(data) {
         let medias = data.media;
         let gallery = new GalleryFactory().getGallery(medias);
         this.getLikesPrice(gallery.totalLike, data.photographers);
-        new Subscribe();
     };
     
     getLikesPrice(totalLike, photographers) {

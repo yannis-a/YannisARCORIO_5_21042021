@@ -289,7 +289,7 @@ h1 {
   width: 45px;
   height: 45px;
 }
-#form-modal form header button:hover {
+#form-modal form header button:hover, #form-modal form header button:focus {
   border-radius: 5px;
   border: 2px solid white;
 }
@@ -327,6 +327,10 @@ h1 {
   font-weight: 600;
   padding: 12px 25px;
 }
+#form-modal form .form-submit:focus {
+  border-radius: 5px;
+  border: 2px solid black;
+}
 
 #medias {
   display: flex;
@@ -349,7 +353,14 @@ h1 {
   font-size: 1em;
 }
 #medias .media-container .media-infos .media-like {
-  text-align: end;
+  font-size: larger;
+  font-weight: bold;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
   width: 25%;
 }
 #medias .media-container .media {
@@ -647,6 +658,10 @@ aside article:nth-last-child(1) {
   padding: 20px 10px;
   font-size: 1em;
   font-weight: 600;
+}
+#profil .profil-header #contact:focus {
+  border-radius: 5px;
+  border: 2px solid black;
 }
 #profil .profil-header .image {
   flex: 1 1 auto;

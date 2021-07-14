@@ -16,15 +16,71 @@ export default class Utils {
 
     // dropdown menu
     dropDownMenu(data) {
+        const focusableElementsArray = [
+            '[href]',
+            'button:not([disabled])',
+            'input:not([disabled])',
+            'select:not([disabled])',
+            'textarea:not([disabled])',
+            '[tabindex]:not([tabindex="-1"])'
+        ];
+
+        const keyCodes = {
+            tab: 9
+        };
+        const triggers = document.querySelectorAll('[aria-haspopup="listbox"]');
+        const doc = document.querySelector('#profil');
         let arrowOpen = document.getElementsByClassName('drop-btn');
         let arrowClose = document.getElementsByClassName('arrow-up-close');
-        let optionSort = document.getElementsByClassName('option-sort');
+        
 
         if (arrowOpen) {
             arrowOpen[0].addEventListener('click', () => {
-                optionSort[0].style.display = 'block';
-            });
-            this.sortMedias(data);
+                triggers.forEach((trigger) => {
+                    let optionSort = document.getElementById(trigger.getAttribute('aria-controls'));
+                    const focusableElements = optionSort.querySelectorAll(focusableElementsArray);
+                    const firstFocusableElement = focusableElements[0];
+                    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+                    optionSort.setAttribute('aria-hidden', false);
+                    optionSort.style.display = 'block';
+                    doc.setAttribute('aria-hidden', true);
+
+                    // return if no focusable element
+                    if (!firstFocusableElement) {
+                        return;
+                    }
+
+                    window.setTimeout(() => {
+                        firstFocusableElement.focus();
+
+                        // trapping focus inside the listbox
+                        focusableElements.forEach((focusableElement) => {
+                            if (focusableElement.addEventListener) {
+                                
+                                focusableElement.addEventListener('keydown', (event) => {
+                                    const tab = event.which === keyCodes.tab;
+
+                                    if (!tab) {
+                                        return;
+                                    }
+                                    if (event.shiftKey) {
+                                        if (event.target === firstFocusableElement) { // shift + tab
+                                            event.preventDefault();
+                                            lastFocusableElement.focus();
+                                        }
+                                    } else if (event.target === lastFocusableElement) { // tab
+                                        event.preventDefault();
+                                        firstFocusableElement.focus();
+                                    }
+                                });
+                            }
+                        });
+                    }, 100);
+                });
+            })
+
+            this.sortMedias(data, doc);
         }
         if (arrowClose) {
             arrowClose[0].addEventListener('click', () => {
@@ -33,7 +89,7 @@ export default class Utils {
         }
     }
 
-    sortMedias(data) {
+    sortMedias(data, doc) {
         let mediaArraySort = [];
         let media = data.media;
         let dropBtn = document.querySelector('.drop-btn');
@@ -45,7 +101,7 @@ export default class Utils {
             if (index == 0) {
                 dropBtn.innerHTML = `Popularité <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
-                mediaArraySort = media.sort((a, b) => { 
+                mediaArraySort = media.sort((a, b) => {
                     return b.likes - a.likes
                 })
 
@@ -53,13 +109,13 @@ export default class Utils {
                 dropBtn.innerHTML = `Date <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
                 mediaArraySort = media.sort((a, b) => {
-                    return new Date(a.date)- new Date(b.date);
+                    return new Date(a.date) - new Date(b.date);
                 })
 
             } else if (index == 2) {
                 dropBtn.innerHTML = `Titre <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>`;
 
-                mediaArraySort = media.sort((a, b) => { 
+                mediaArraySort = media.sort((a, b) => {
                     if (a.title.toLowerCase() < b.title.toLowerCase()) {
                         return -1;
                     } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
@@ -68,6 +124,7 @@ export default class Utils {
                 })
             }
             this.displaySortMedia(mediaArraySort);
+            doc.setAttribute('aria-hidden', false);
         }));
     }
 
@@ -91,7 +148,7 @@ export default class Utils {
             } else {
                 event.target.classList.remove('activated')
             }
-            this.diplayArticle(articles); 
+            this.diplayArticle(articles);
         });
     };
 

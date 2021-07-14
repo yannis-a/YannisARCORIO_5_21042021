@@ -19,7 +19,7 @@ export default class GalleryFactory {
                 $('#medias').append(
                     $('<article class="media-container"></article>').append(
                         $('<a href="#" title="' + element.title + '"></a>').append(
-                            $('<div class="media"></div>').append(
+                            $("<div class=\"media\" aria-label=\"" + element.title + ",closeup view\"></div>").append(
                                 mediaHTML
                             )
                         ),
@@ -29,7 +29,7 @@ export default class GalleryFactory {
                                 $('<span class="media-like-number"></span>').append(
                                     $('<a class="like-counter">' + element.likes + '</a>')
                                 ),
-                                $('<i class="far fa-heart heart-btn" aria-label="likes" role="button" data-value="' + element.likes + '"></i>')
+                                $('<i class="fas fa-heart heart-btn" aria-label="likes" role="button" data-value="' + element.likes + '"></i>')
                             )
                         )
                     )

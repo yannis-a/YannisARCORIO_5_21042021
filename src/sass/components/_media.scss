@@ -18,7 +18,14 @@
             font-size: 1em;
 
             .media-like {
-                text-align: end;
+                font-size: larger;
+                font-weight: bold;
+                display: flex;
+                align-content: center;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                align-items: center;
                 width: 25%;
             }
         }

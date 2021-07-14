@@ -11,7 +11,7 @@ export default class Profil {
         // gestion tags
         var tags = "";
         photographers[0].tags.forEach(tag => {
-            tags += '<a class="tag" href="index.html"><li>' + new Utils().toUpperCaseFirst(tag) + '</li></a>'
+            tags += '<a aria-label="Tag" class="tag" href="index.html"><li>' + new Utils().toUpperCaseFirst(tag) + '</li></a>'
         });
 
         // gestion profil
@@ -26,7 +26,7 @@ export default class Profil {
                     )
                 )
             ),
-            $('<button id="contact" title="Contact Me">Contactez-moi</button>'),
+            $('<button id="contact" aria-haspopup="dialog" aria-controls="form-modal" title="Contact Me">Contactez-moi</button>'),
             $('<div class="image"></div>').append(
                 $('<div id="' + photographers[0].id + '" class="img_user ' + photographers[0].id + '"></div>')
             )
@@ -47,9 +47,9 @@ export default class Profil {
             );
         }
         img.src = urlImg;
+        img.setAttribute("alt", "");
 
-
-        new Modal().init(photographersData);
+        new Modal().initialize(photographersData);
         new Form().validate();
 
         return photographers[0];

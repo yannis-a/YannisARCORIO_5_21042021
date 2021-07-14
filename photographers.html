@@ -25,28 +25,42 @@
         <div class="dropdown">
             <span id="sort-text">Trier par :</span>
             <div>
-                <button class="drop-btn" aria-haspopup="listbox">
+                <button id="sort" class="drop-btn" aria-haspopup="listbox" aria-labelledby="sort-text"
+                    aria-expanded="false" aria-controls="option-list">
                     Popularité
                     <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>
                 </button>
 
-                <ul class="option-sort" role="listbox">
-                    <li class="sort" role='option'>Popularité <span class="fas fa-chevron-up arrow-up-close"></span>
+                <ul aria-labelledby="sort" class="option-sort" role="listbox" id="option-list">
+                    <li     class="sort" role='option'>
+                        <a tabindex="1" href="#">
+                            Popularité
+                            <span class="fas fa-chevron-up arrow-up-close" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="sort" role='option'>Date</li>
-                    <li class="sort" role='option'>Tître</li>
+                    <li class="sort" role='option'>
+                        <a tabindex="2" href="#">
+                            Date
+                        </a>
+                    </li>
+                    <li class="sort" role='option'>
+                        <a tabindex="3" href="#">
+                            Tître
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <!-- MEDIAS -->
-        <section id='medias' aria-label='photographer medias'></section>
+        <section id='medias' aria-hidden="false" aria-label='photographer medias'></section>
 
         <!-- PRICE -->
         <div id="price" aria-label="photographer likes and price"></div>
 
         <!--MODAL-->
-        <div role="dialog" id="form-modal" aria-label="contact me form" aria-labelledby="form-name" aria-hidden="true">
+        <div role="dialog" id="form-modal" aria-label="contact me form" aria-labelledby="form-title" aria-modal="true"
+            aria-hidden="true" tabindex="-1">
             <form action="photographer-page.html" method="POST" id="contact-form">
                 <header aria-label="contact form header">
                     <h1 id="form-title">

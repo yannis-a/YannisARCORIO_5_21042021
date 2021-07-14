@@ -52,6 +52,10 @@
     padding: 20px 10px;
     font-size: 1em;
     font-weight: 600;
+    &:focus {
+        border-radius: 5px;
+        border: 2px solid black;
+    }   
 }
 
 @mixin img-user {
