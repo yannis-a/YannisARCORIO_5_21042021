@@ -11,7 +11,7 @@ export default class Profil {
         // gestion tags
         var tags = "";
         photographers[0].tags.forEach(tag => {
-            tags += '<a aria-label="Tag" class="tag" href="index.html"><li>' + new Utils().toUpperCaseFirst(tag) + '</li></a>'
+            tags += '<a aria-label="Tag" class="tag ' + tag + '" href="index.html"><li>' + new Utils().toUpperCaseFirst(tag) + '</li></a>'
         });
 
         // gestion profil
@@ -51,7 +51,5 @@ export default class Profil {
 
         new Modal().initialize(photographersData);
         new Form().validate();
-
-        return photographers[0];
     };
 }

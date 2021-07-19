@@ -59,6 +59,11 @@
 
         .tags ul {
             justify-content: flex-start;
+
+            & a:hover{
+                background-color: $bgcolor-primary;
+                color: white;
+            }
         }
     }
 }

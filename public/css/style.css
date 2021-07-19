@@ -697,6 +697,10 @@ aside article:nth-last-child(1) {
 #profil .profil-header .tags ul {
   justify-content: flex-start;
 }
+#profil .profil-header .tags ul a:hover {
+  background-color: #901C1C;
+  color: white;
+}
 
 #price {
   display: none;

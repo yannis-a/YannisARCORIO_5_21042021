@@ -32,7 +32,7 @@ export default class Utils {
         const doc = document.querySelector('#profil');
         let arrowOpen = document.getElementsByClassName('drop-btn');
         let arrowClose = document.getElementsByClassName('arrow-up-close');
-        
+
 
         if (arrowOpen) {
             arrowOpen[0].addEventListener('click', () => {
@@ -57,7 +57,7 @@ export default class Utils {
                         // trapping focus inside the listbox
                         focusableElements.forEach((focusableElement) => {
                             if (focusableElement.addEventListener) {
-                                
+
                                 focusableElement.addEventListener('keydown', (event) => {
                                     const tab = event.which === keyCodes.tab;
 
@@ -134,8 +134,6 @@ export default class Utils {
     }
 
 
-
-
     // tags 
     selectByTags() {
         let articles = document.querySelectorAll('.card_user');
@@ -182,7 +180,7 @@ export default class Utils {
         return filterSelected;
     };
 
-    // retourne la chaine de caractère avec la premier lettre en maj
+    
     toUpperCaseFirst(a) {
         return (a + '').charAt(0).toUpperCase() + a.substr(1);
     }
