@@ -363,7 +363,7 @@ h1 {
   align-items: center;
   width: 25%;
 }
-#medias .media-container .media {
+#medias .media-container .media-div {
   width: 300px;
   height: 300px;
   position: relative;
@@ -375,7 +375,7 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* DROPDOWN */
@@ -383,80 +383,83 @@ h1 {
   display: none;
 }
 
-@media (min-width: 900px) {
-  .drop-btn {
-    align-items: center;
-    background: #901c1c;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    left: 11rem;
-    padding: 0.625rem 1.25rem;
-    position: absolute;
-    top: 25.6rem;
-    width: 10rem;
-  }
-
-  .dropdown {
-    display: block;
-    margin-left: 60px;
-  }
-  .dropdown > span {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-right: 1.5625rem;
-  }
-
-  .option-sort {
-    border-radius: 5px;
-    color: #fff;
-    display: none;
-    left: 176px;
-    padding: 0;
-    position: absolute;
-    top: 409px;
-    width: 10rem;
-    z-index: 10;
-    list-style-type: none;
-  }
-  .option-sort li {
-    background: #901c1c;
-    padding: 0.625rem 1.25rem;
-  }
-  .option-sort li:hover {
-    background-color: #651414;
-    cursor: pointer;
-  }
-  .option-sort li:nth-child(1) {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
-  .option-sort li:first-child {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  .option-sort li:last-child {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
+.drop-btn {
+  align-items: center;
+  background: #901c1c;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  left: 11rem;
+  padding: 0.625rem 1.25rem;
+  position: absolute;
+  top: 25.6rem;
+  width: 10rem;
 }
-/* LIGHTBOX */
-#lightbox-body {
+
+.dropdown {
+  display: block;
+  margin-left: 60px;
+}
+.dropdown > span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-right: 1.5625rem;
+}
+
+.option-sort {
+  border-radius: 5px;
+  color: #fff;
+  display: none;
+  left: 176px;
+  padding: 0;
+  position: absolute;
+  top: 409px;
+  width: 10rem;
+  z-index: 10;
+  list-style-type: none;
+}
+.option-sort li {
+  background: #901c1c;
+  padding: 0.625rem 1.25rem;
+}
+.option-sort li a {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.option-sort li:hover {
+  background-color: #651414;
+  cursor: pointer;
+}
+.option-sort li:nth-child(1) {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.option-sort li:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.option-sort li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* CAROUSEL */
+#carousel-container {
   background-color: #fff;
   height: 90%;
   left: 50%;
   margin: 0 auto;
   position: fixed;
   text-align: center;
-  top: 3%;
   transform: translate(-50%, 0);
-  width: 60%;
 }
 
-#works-lightbox-media {
+#carousel-media {
   background-color: rgba(255, 255, 255, 0);
   height: 100%;
   margin: 0 auto 1rem;
@@ -464,14 +467,14 @@ h1 {
   width: 90%;
 }
 
-#works-lightbox-media img,
-#works-lightbox-media video {
+#carousel-media img,
+#carousel-media video {
   height: 100%;
   object-fit: contain;
   width: 100%;
 }
 
-.close-lightbox-icon {
+.close-carousel-icon {
   color: #901C1C;
   font-size: 1.7rem;
   position: absolute;
@@ -479,7 +482,7 @@ h1 {
   top: 0.5rem;
 }
 
-.left-arrow-lightbox {
+.left-arrow-carousel {
   color: #901C1C;
   font-size: 2rem;
   left: -3rem;
@@ -487,7 +490,7 @@ h1 {
   top: 48%;
 }
 
-.right-arrow-lightbox {
+.right-arrow-carousel {
   color: #901C1C;
   font-size: 2rem;
   position: absolute;
@@ -514,19 +517,19 @@ aside article:nth-last-child(1) {
 }
 
 @media (min-width: 600px) {
-  .close-lightbox-icon {
+  .close-carousel-icon {
     cursor: pointer;
     right: 1rem;
     top: 0.5rem;
   }
 
-  .left-arrow-lightbox {
+  .left-arrow-carousel {
     cursor: pointer;
     left: 0;
     top: 48%;
   }
 
-  .right-arrow-lightbox {
+  .right-arrow-carousel {
     cursor: pointer;
     right: 0;
     top: 48%;
@@ -731,8 +734,8 @@ aside article:nth-last-child(1) {
 }
 #back-home {
   position: fixed;
-  margin: 20px 45%;
-  width: 10%;
+  margin: 20px 44%;
+  width: 12%;
   padding: 7px;
   background-color: #D3573C;
   text-align: center;

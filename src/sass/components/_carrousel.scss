@@ -1,17 +1,15 @@
-/* LIGHTBOX */
-#lightbox-body {
+/* CAROUSEL */
+#carousel-container {
     background-color: #fff;
     height: 90%;
     left: 50%;
     margin: 0 auto;
     position: fixed;
     text-align: center;
-    top: 3%;
     transform: translate(-50%, 0);
-    width: 60%;
 }
 
-#works-lightbox-media {
+#carousel-media {
     background-color: rgba(255, 255, 255, 0);
     height: 100%;
     margin: 0 auto 1rem;
@@ -19,14 +17,14 @@
     width: 90%;
 }
 
-#works-lightbox-media img,
-#works-lightbox-media video {
+#carousel-media img,
+#carousel-media video {
     height: 100%;
     object-fit: contain;
     width: 100%;
 }
 
-.close-lightbox-icon {
+.close-carousel-icon {
     color: #901C1C;
     font-size: 1.7rem;
     position: absolute;
@@ -34,7 +32,7 @@
     top: .5rem;
 }
 
-.left-arrow-lightbox {
+.left-arrow-carousel {
     color: #901C1C;
     font-size: 2rem;
     left: -3rem;
@@ -42,7 +40,7 @@
     top: 48%;
 }
 
-.right-arrow-lightbox {
+.right-arrow-carousel {
     color: #901C1C;
     font-size: 2rem;
     position: absolute;
@@ -69,19 +67,19 @@ aside article:nth-last-child(1) {
 }
 
 @media (min-width: 600px) {
-    .close-lightbox-icon {
+    .close-carousel-icon {
         cursor: pointer;
         right: 1rem;
         top: .5rem;
     }
 
-    .left-arrow-lightbox {
+    .left-arrow-carousel {
         cursor: pointer;
         left: 0;
         top: 48%;
     }
 
-    .right-arrow-lightbox {
+    .right-arrow-carousel {
         cursor: pointer;
         right: 0;
         top: 48%;

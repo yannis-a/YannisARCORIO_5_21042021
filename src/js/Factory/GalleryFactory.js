@@ -1,5 +1,6 @@
 import MediaFactory from './MediaFactory.js';
-import Lightbox from '../utils/LightBox.js';
+import Lightbox from '../utils/Carousel.js';
+import Carousel from '../utils/Carousel.js';
 
 
 export default class GalleryFactory {
@@ -19,7 +20,7 @@ export default class GalleryFactory {
                 $('#medias').append(
                     $('<article class="media-container"></article>').append(
                         $('<a href="#" title="' + element.title + '"></a>').append(
-                            $("<div class=\"media\" aria-label=\"" + element.title + ",closeup view\"></div>").append(
+                            $("<div class=\"media-div\" aria-label=\"" + element.title + ",closeup view\"></div>").append(
                                 mediaHTML
                             )
                         ),
@@ -35,9 +36,9 @@ export default class GalleryFactory {
                     )
                 )
                 this.totalLike += parseInt(element.likes);
-                currentMedia.push(mediaHTML.outerHTML);
+                currentMedia.push(mediaHTML);
                 currentMediaName.push(element.title);
-                (new Lightbox()).init(currentMedia, currentMediaName);
+                new Carousel().init(currentMedia, currentMediaName);
             }
         })
         return this;

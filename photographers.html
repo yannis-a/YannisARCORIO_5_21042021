@@ -32,9 +32,9 @@
                 </button>
 
                 <ul aria-labelledby="sort" class="option-sort" role="listbox" id="option-list">
-                    <li     class="sort" role='option'>
+                    <li class="sort" role='option'>
                         <a tabindex="1" href="#">
-                            Popularité
+                            <span>Popularité</span>
                             <span class="fas fa-chevron-up arrow-up-close" aria-hidden="true"></span>
                         </a>
                     </li>
@@ -97,14 +97,14 @@
             </form>
         </div>
 
-        <!--LIGHTBOX-->
-        <aside id="works-lightbox" aria-hidden="true">
-            <article id="lightbox-body" role='dialog'>
-                <span class="fas fa-times close-lightbox-icon" role="button" title="Close dialog"></span>
-                <span class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image"></span>
-                <span class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image"></span>
-                <div id="works-lightbox-media"></div>
-                <div id="works-lightbox-name"></div>
+        <!--CAROUSEL-->
+        <aside id="carousel" aria-hidden="true">
+            <article id="carousel-container" role='dialog'>
+                <span class="fas fa-times close-carousel-icon" role="button" title="Close dialog"></span>
+                <span class="fas fa-chevron-left left-arrow-carousel" role="button" title="Previous image"></span>
+                <span class="fas fa-chevron-right right-arrow-carousel" role="button" title="Next image"></span>
+                <div id="carousel-media"></div>
+                <div id="carousel-media-name"></div>
             </article>
         </aside>
     </main>
