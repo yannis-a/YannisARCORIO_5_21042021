@@ -27,6 +27,22 @@
                 justify-content: space-around;
                 align-items: center;
                 width: 25%;
+
+                .fa-heart {
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                    @keyframes fave-heart {
+                        0% {
+                            font-size: 1.2rem;
+                        }
+                        100% {
+                            font-size: 2rem;
+                        }
+                    }
+                    &:active {
+                        animation: fave-heart 0.1s;
+                    }
+                }
             }
         }
         .media-div {

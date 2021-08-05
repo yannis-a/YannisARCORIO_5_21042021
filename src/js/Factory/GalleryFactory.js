@@ -1,5 +1,4 @@
 import MediaFactory from './MediaFactory.js';
-import Lightbox from '../utils/Carousel.js';
 import Carousel from '../utils/Carousel.js';
 
 
@@ -27,14 +26,13 @@ export default class GalleryFactory {
                         $('<div class="media-infos"></div>').append(
                             $('<h2 class="media-title">' + element.title + '</h2>'),
                             $('<div class="media-like"></div>').append(
-                                $('<span class="media-like-number"></span>').append(
-                                    $('<a class="like-counter">' + element.likes + '</a>')
-                                ),
-                                $('<i class="fas fa-heart heart-btn" aria-label="likes" role="button" data-value="' + element.likes + '"></i>')
+                                $('<span class="media-like-number-' + element.id + '">' + element.likes + '</span>'),
+                                $('<i class="fas fa-heart heart-btn-' + element.id + '" aria-label="likes" role="button"></i>')
                             )
                         )
                     )
                 )
+                this.liked(element);
                 this.totalLike += parseInt(element.likes);
                 currentMedia.push(mediaHTML);
                 currentMediaName.push(element.title);
@@ -43,4 +41,18 @@ export default class GalleryFactory {
         })
         return this;
     };
+
+    liked(element) {
+        $('.heart-btn-' + element.id).on('click', () => {
+            let likeElement = $('.media-like-number-' + element.id);
+            let numberLike = parseInt(likeElement.text());
+            numberLike++;
+            likeElement.text(numberLike);
+
+            let totalLikeElement = $('#total-likes');
+            let numberTotalLike = parseInt(totalLikeElement.text());
+            numberTotalLike++;
+            totalLikeElement.text(numberTotalLike);
+        })
+    }
 }

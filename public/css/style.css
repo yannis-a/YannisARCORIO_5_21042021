@@ -363,6 +363,21 @@ h1 {
   align-items: center;
   width: 25%;
 }
+#medias .media-container .media-infos .media-like .fa-heart {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+@keyframes fave-heart {
+  0% {
+    font-size: 1.2rem;
+  }
+  100% {
+    font-size: 2rem;
+  }
+}
+#medias .media-container .media-infos .media-like .fa-heart:active {
+  animation: fave-heart 0.1s;
+}
 #medias .media-container .media-div {
   width: 300px;
   height: 300px;
