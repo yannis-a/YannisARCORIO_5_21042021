@@ -134,6 +134,7 @@ export default class Utils {
     }
 
 
+
     // tags 
     selectByTags() {
         let articles = document.querySelectorAll('.card_user');
@@ -148,6 +149,20 @@ export default class Utils {
             }
             this.diplayArticle(articles);
         });
+    };
+
+    // redirected on tag index page from profil
+    redirectedByTag(){
+        if(window.location.hash != ""){
+            let articles = document.querySelectorAll('.card_user');
+            let tag = window.location.hash.split('#')[1];
+            console.log(tag)
+            let filter = document.getElementById(tag);
+            console.log(filter.firstChild)
+            filter.firstChild.classList.add('activated');
+            console.log(filter)
+            this.diplayArticle(articles);
+        }
     };
 
     // display or hide article
