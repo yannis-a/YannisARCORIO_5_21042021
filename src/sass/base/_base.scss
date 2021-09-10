@@ -142,7 +142,8 @@ header {
         padding: 60px 60px 0 60px;
 
         @media screen and (max-width: 1200px) {
-            width: 100%;
+            width: auto;
+            padding: 20px 10px;
         }
     }
 
@@ -155,9 +156,19 @@ header {
         width: 25%;
         padding: 60px 60px 0 60px;
         text-align: center;
+
+        @media screen and (max-width: 1200px) {
+            width: auto;
+            padding: 20px 0px;
+            text-align: start;
+        }
+
         img {
             width: 200px;
-            height: 50px;
+
+            @media screen and (max-width: 1200px) {
+                width: 150px;
+            }
         }
     }
 }
