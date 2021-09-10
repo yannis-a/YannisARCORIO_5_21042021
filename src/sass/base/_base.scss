@@ -137,7 +137,6 @@ header {
         flex-direction: column;
     }
 
-
     #nav {
         width: 50%;
         padding: 60px 60px 0 60px;
@@ -159,6 +158,18 @@ header {
         img {
             width: 200px;
             height: 50px;
+        }
+    }
+}
+
+footer {
+    div {
+        display: flex;
+        width: 100%;
+        justify-content: end;
+        a img {
+            height: 30px;
+            width: auto;
         }
     }
 }

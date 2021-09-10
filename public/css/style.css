@@ -186,6 +186,16 @@ header .home img {
   height: 50px;
 }
 
+footer div {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+footer div a img {
+  height: 30px;
+  width: auto;
+}
+
 * {
   font-family: DM Sans, sans-serif;
 }
