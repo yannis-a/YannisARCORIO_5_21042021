@@ -14,8 +14,8 @@ import Utils from './utils/Utils.js'
             return
         };
         // sinon on charge la homepage
-        new HomePage().getPhotographers(data);
         new HomePage().getTags(data);
+        new HomePage().getPhotographers(data);
         new Utils().redirectedByTag();
     }).catch(e => {
         console.error('Failed to load DataFishEye :' + e);

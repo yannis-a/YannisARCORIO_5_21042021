@@ -1,3 +1,4 @@
+import filter from 'core-js/library/fn/array/filter';
 import GalleryFactory from '../Factory/GalleryFactory.js';
 
 export default class Utils {
@@ -139,6 +140,7 @@ export default class Utils {
     selectByTags() {
         let articles = document.querySelectorAll('.card_user');
         let filters = document.querySelector('#nav ul');
+        let tags = document.querySelectorAll('.tag-link');
         // listener on click filters
         filters.addEventListener('click', event => {
             let classValue = event.target.classList.value;
@@ -149,11 +151,28 @@ export default class Utils {
             }
             this.diplayArticle(articles);
         });
+        console.log(tags)
+        tags.forEach(element => {
+            console.log('dans le for each : '+element)
+            element.addEventListener('keydown', (key) => {
+                if (key.code == 'Enter') {console.log(key)
+                    let classValue = key.target.classList.value;
+                    console.log('classValue : '+ classValue)
+                    if (-1 === classValue.indexOf('activated')) {
+                        key.target.firstChild.classList.add('activated')
+                    } else {
+                        key.target.firstChild.classList.remove('activated')
+                    }
+                    this.diplayArticle(articles);
+                }
+            })
+        });
+
     };
 
     // redirected on tag index page from profil
-    redirectedByTag(){
-        if(window.location.hash != ""){
+    redirectedByTag() {
+        if (window.location.hash != "") {
             let articles = document.querySelectorAll('.card_user');
             let tag = window.location.hash.split('#')[1];
             console.log(tag)
@@ -195,7 +214,7 @@ export default class Utils {
         return filterSelected;
     };
 
-    
+
     toUpperCaseFirst(a) {
         return (a + '').charAt(0).toUpperCase() + a.substr(1);
     }

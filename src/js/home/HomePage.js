@@ -1,6 +1,18 @@
 import Utils from '../Utils/Utils.js';
 
 export default class HomePage {
+
+  getTags(data) {
+    let tags = data.tags;
+
+    tags.forEach(tag => {
+      $('#nav ul').append(
+        $('<a></a>').addClass('tag-link').attr('href', '#').attr('id', tag).append(
+          $('<li></li>').attr('data-filter', tag).append(new Utils().toUpperCaseFirst(tag))));
+    });
+  };
+
+  
   getPhotographers(data) {
     let photographers = data.photographers;
 
@@ -51,16 +63,6 @@ export default class HomePage {
     new Utils().selectByTags();
     new Utils().scrollButton();
     return photographers;
-  };
-
-  getTags(data) {
-    let tags = data.tags;
-
-    tags.forEach(tag => {
-      $('#nav ul').append(
-        $('<a></a>').addClass('tag-link').attr('href', '#').attr('id', tag).append(
-          $('<li></li>').attr('data-filter', tag).append(new Utils().toUpperCaseFirst(tag))));
-    });
   };
 }
 
