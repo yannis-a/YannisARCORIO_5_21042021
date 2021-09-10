@@ -34,7 +34,8 @@
                 width: 45px;
                 height: 45px;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     border-radius: 5px;
                     border: 2px solid white;
                 }
@@ -64,6 +65,19 @@
 
             textarea {
                 height: 75px;
+            }
+
+            p {
+                display: none;
+                position: absolute;
+                background-color: white;
+                color: black;
+                left: 150px;
+                border-radius: 5px;
+                padding: 2px;
+                margin-top: 10px;
+                border: 1px solid red;
+                height: auto;
             }
         }
 

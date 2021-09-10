@@ -11,9 +11,9 @@ export default class Form {
 
         form.addEventListener('submit', event => {
             event.preventDefault();
-            let isValid = this.checkNames(firstName, regexName) &&
-                this.checkNames(lastName, regexName) &&
-                this.checkEmail(email) &&
+            let isValid = this.checkFirstName(firstName, regexName) &&
+                this.checkLastName(lastName, regexName) &&
+                this.checkEmail(email, regexEmail) &&
                 this.checkMessage(message);
 
             if (isValid) {
@@ -22,9 +22,7 @@ export default class Form {
                 email.style.border = 'none';
                 message.style.border = 'none';
                 this.consoleMessageValid(firstName, lastName, email, message);
-                document.getElementById('contact-form').reset();
-            } else {
-                this.errorVerification(firstName, lastName, email, message, regexName);
+                document.getElementById('form-modal').style.display = 'none';
             }
         });
     };
@@ -38,44 +36,69 @@ export default class Form {
         console.groupEnd();
     };
 
-    errorVerification(firstName, lastName, email, message, regex) {
-        this.checkNames(firstName, regex);
-        this.checkNames(lastName, regex);
-        this.checkEmail(email);
-        this.checkMessage(message);
-    };
-
-    checkNames(elt, regex) {
-        if (elt.value.trim().length < 2 || elt.value.trim() === "" || !elt.value.match(regex)) {
-            elt.parentElement.setAttribute('data-error-visible', 'true');
-            elt.style.border = '2px solid #e54858';
+    checkLastName(elt, regex) {
+        let errorlast = document.getElementById("error-last-name");
+        if (elt.value.trim().length < 2 || elt.value.trim() === "") {
+            elt.style.border = '2px solid red';
+            errorlast.innerHTML = "2 caractères minimum";
+            errorlast.style.display = "inline";
             return false;
-        } else {
-            elt.parentElement.setAttribute('data-error-visible', 'false');
+        } else if (!elt.value.match(regex)) {
+            elt.style.border = '2px solid red';
+            errorlast.innerHTML = "caractère non autorisé"
+            errorlast.style.display = "inline";
+            return false;
+        }
+        else {
             elt.style.border = 'solid #279e7a 0.19rem';
+            errorlast.style.display = "none";
             return true;
         }
     };
 
-    checkEmail(elt) {
-        if (elt.value.trim().match(regexEmail)) {
-            elt.parentElement.setAttribute('data-error-visible', 'false');
+    checkFirstName(elt, regex) {
+        let errorfirst = document.getElementById("error-first-name");
+        if (elt.value.trim().length < 2 || elt.value.trim() === "") {
+            elt.style.border = '2px solid red';
+            errorfirst.innerHTML = "2 caractères minimum";
+            errorfirst.style.display = "inline";
+            return false;
+        } else if (!elt.value.match(regex)) {
+            elt.style.border = '2px solid red';
+            errorfirst.innerHTML = "caractère non autorisé"
+            errorfirst.style.display = "inline";
+            return false;
+        }
+        else {
             elt.style.border = 'solid #279e7a 0.19rem';
+            errorfirst.style.display = "none";
             return true;
         }
-        elt.parentElement.setAttribute('data-error-visible', 'true');
-        elt.style.border = '2px solid #e54858';
+    };
+
+    checkEmail(elt, regex) {
+        let errormail = document.getElementById("error-mail");
+        if (elt.value.trim().match(regex)) {
+            elt.style.border = 'solid #279e7a 0.19rem';
+            errormail.style.display = "none";
+            return true;
+        }
+        elt.style.border = '2px solid red';
+        errormail.innerHTML = "email non valide"
+        errormail.style.display = "inline";
         return false;
     };
 
     checkMessage(elt) {
+        let errormsg = document.getElementById("error-message");
         if (elt.value.trim() === '' || elt.value.trim() == null) {
-            elt.parentElement.setAttribute('data-error-visible', 'true');
-            elt.style.border = '2px solid #e54858';
+            elt.style.border = '2px solid red';
+            errormsg.innerHTML = "ne peut pas être vide"
+            errormsg.style.display = "inline";
             return false;
         }
-        elt.parentElement.setAttribute('data-error-visible', 'false');
         elt.style.border = 'solid #279e7a 0.19rem';
+        errormsg.style.display = "none";
         return true;
     };
 }
