@@ -12,7 +12,7 @@ export default class Carousel {
             let carouselMedia = $('#carousel-media');
             let carouselMediaName = $('#carousel-media-name');
             this.currentIndex = index;
-            document.getElementById('carousel').style.display = 'block';
+            document.getElementById('carousel').style.display = 'flex';
             carouselMedia.html(currentMedia[index])
             carouselMediaName.html(currentMediaName[index]);
         }))

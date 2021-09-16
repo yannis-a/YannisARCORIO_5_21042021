@@ -7,6 +7,10 @@
     position: fixed;
     text-align: center;
     transform: translate(-50%, 0);
+
+    @media screen and (max-width: 900px) {
+        height: auto;
+    }
 }
 
 #carousel-media {
@@ -15,6 +19,16 @@
     margin: 0 auto 1rem;
     overflow: hidden;
     width: 90%;
+
+    &-name {
+        @media screen and (max-width: 900px) {
+            text-align: left;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        margin: 0;
+        width: auto;
+    }
 }
 
 #carousel-media img,
@@ -25,15 +39,18 @@
 }
 
 .close-carousel-icon {
-    color: #901C1C;
+    color: #901c1c;
     font-size: 1.7rem;
     position: absolute;
     right: -3rem;
-    top: .5rem;
+    top: 0.5rem;
+    @media screen and (max-width: 900px) {
+        top: auto;
+    }
 }
 
 .left-arrow-carousel {
-    color: #901C1C;
+    color: #901c1c;
     font-size: 2rem;
     left: -3rem;
     position: absolute;
@@ -41,7 +58,7 @@
 }
 
 .right-arrow-carousel {
-    color: #901C1C;
+    color: #901c1c;
     font-size: 2rem;
     position: absolute;
     right: -3rem;
@@ -57,10 +74,16 @@ aside {
     top: 0;
     width: 100%;
     z-index: 2;
+    @media screen and (max-width: 900px) {
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 aside article:nth-last-child(1) {
-    color: #901C1C;
+    color: #901c1c;
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -70,7 +93,7 @@ aside article:nth-last-child(1) {
     .close-carousel-icon {
         cursor: pointer;
         right: 1rem;
-        top: .5rem;
+        top: 0.5rem;
     }
 
     .left-arrow-carousel {
@@ -87,6 +110,6 @@ aside article:nth-last-child(1) {
 
     aside article:nth-last-child(1) {
         left: 23%;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
     }
 }

@@ -4,12 +4,23 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
+    @media screen and (max-width: 900px) {
+        margin-top: 0;
+    }
+
     .media-container {
         width: 300px;
         height: 300px;
         margin-bottom: 75px;
         margin-left: 5%;
         margin-right: 5%;
+        @media screen and (max-width: 900px) {
+            margin-left: 0;
+            margin-right: 0;
+            height: auto;
+            width: 100%;
+            margin-bottom: 20px;
+        }
         .media-infos {
             display: flex;
             justify-content: space-between;
@@ -50,6 +61,11 @@
             height: 300px;
             position: relative;
             overflow: hidden;
+            @media screen and (max-width: 900px) {
+                width: auto;
+                height: 250px;
+                border-radius: 5px;
+            }
         }
     }
 
@@ -60,5 +76,9 @@
         left: 0;
         width: 100%;
         height: 100%;
+        @media screen and (max-width: 900px) {
+            height: auto;
+            bottom: auto;
+        }
     }
 }

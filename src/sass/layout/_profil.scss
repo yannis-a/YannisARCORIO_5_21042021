@@ -1,6 +1,9 @@
 #profil {
     #banner {
         margin-bottom: 50px;
+        @media screen and (max-width: 1200px) {
+            margin-bottom: 0;
+        }
         .home {
             width: 0;
         }
@@ -14,8 +17,17 @@
         margin-right: 5%;
         align-items: flex-start;
 
+        @media screen and (max-width: 1200px) {
+            margin: 0;
+            width: auto;
+            padding-bottom: 0;
+        }
+
         .infos {
             margin-right: 30px;
+            @media screen and (max-width: 1200px) {
+                margin: 0;
+            }
 
             & > * {
                 margin-bottom: 15px;
@@ -44,6 +56,14 @@
 
         #contact {
             @include btn-principal;
+            @media screen and (max-width: 1200px) {
+                position: fixed;
+                z-index: 2;
+                padding: 10px;
+                margin: 30%;
+                min-width: 40%;
+                bottom: -10%;
+            }
         }
 
         .image {
@@ -55,12 +75,13 @@
             display: flex;
             margin-right: 3%;
             justify-content: flex-end;
+
         }
 
         .tags ul {
             justify-content: flex-start;
 
-            & a:hover{
+            & a:hover {
                 background-color: $bgcolor-primary;
                 color: white;
             }

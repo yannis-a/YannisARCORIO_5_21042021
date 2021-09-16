@@ -1,7 +1,4 @@
 /* DROPDOWN */
-.dropdown {
-    display: none;
-}
 
 .drop-btn {
     align-items: center;
@@ -26,6 +23,11 @@
         font-weight: 700;
         margin-right: 1.5625rem;
     }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+
 }
 .option-sort {
     border-radius: 5px;

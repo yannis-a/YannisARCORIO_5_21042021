@@ -4,6 +4,11 @@
     flex-flow: wrap row;
     width: 100%;
 
+    @media screen and (max-width: 1200px) {
+        flex-flow: column wrap;
+        padding: 0;
+    }
+
     .card_user {
         margin: 30px 20px 20px 20px;
         padding: 20px;
@@ -15,6 +20,10 @@
         position: relative;
         width: 22%;
         min-width: 22%;
+
+        @media screen and (max-width: 1200px) {
+            width: auto;
+        }
 
         &:hover {
             @include box-shadow(0.1);

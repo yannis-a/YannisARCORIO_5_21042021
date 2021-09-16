@@ -28,7 +28,7 @@ export default class Profil {
             ),
             $('<button id="contact" aria-haspopup="dialog" aria-controls="form-modal" title="Contact Me">Contactez-moi</button>'),
             $('<div class="image"></div>').append(
-                $('<div id="' + photographers[0].id + '" class="img_user ' + photographers[0].id + '"></div>')
+                $('<div id="' + photographers[0].id + '" class="img_user-profil ' + photographers[0].id + '"></div>')
             )
         );
 
