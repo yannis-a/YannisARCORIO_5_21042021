@@ -5,7 +5,7 @@ export default class Carousel {
 
 
     init(currentMedia, currentMediaName) {
-        let mediaArray = Array.from(document.getElementsByClassName('media'));
+        let mediaArray = Array.from(document.getElementsByClassName('media-container'));
 
 
         mediaArray.forEach((media, index) => media.addEventListener("click", () => {
@@ -16,10 +16,22 @@ export default class Carousel {
             carouselMedia.html(currentMedia[index])
             carouselMediaName.html(currentMediaName[index]);
         }))
+
+        mediaArray.forEach((media, index) => media.addEventListener("keydown", (key) => {
+            if (key.code == "Enter") {
+                let carouselMedia = $('#carousel-media');
+                let carouselMediaName = $('#carousel-media-name');
+                this.currentIndex = index;
+                document.getElementById('carousel').style.display = 'flex';
+                carouselMedia.html(currentMedia[index])
+                carouselMediaName.html(currentMediaName[index]);
+            }
+        }))
+
         this.previous(document.querySelector('.left-arrow-carousel'), currentMedia, currentMediaName);
         this.next(document.querySelector('.right-arrow-carousel'), currentMedia, currentMediaName);
-        this.close();
         this.keyboard(currentMedia, currentMediaName);
+        this.close();
         return this
     }
 
@@ -57,8 +69,8 @@ export default class Carousel {
 
     close() {
         document.querySelector('.close-carousel-icon').addEventListener('click', () => {
+            window.location.reload();
             let lightbox = document.getElementById('carousel');
-
             lightbox.style.display = 'none';
         })
     }
@@ -67,9 +79,10 @@ export default class Carousel {
         document.addEventListener('keydown', (key) => {
             let carouselMedia = $('#carousel-media');
             let carouselMediaName = $('#carousel-media-name');
-
+            console.log(key.code)
             // ESCAPE TO CLOSE
             if (key.code == "Escape") {
+                window.location.reload();
                 let lightBox = document.getElementById('carousel');
                 lightBox.style.display = 'none';
             }

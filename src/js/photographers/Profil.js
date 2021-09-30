@@ -47,7 +47,7 @@ export default class Profil {
             );
         }
         img.src = urlImg;
-        img.setAttribute("alt", "");
+        img.setAttribute("alt", photographers[0].name);
 
         new Modal().initialize(photographersData);
         new Form().validate();

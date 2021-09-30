@@ -2,7 +2,7 @@ export default class Modal {
 
     initialize(data) {
         const triggers = document.querySelectorAll('[aria-haspopup="dialog"]');
-        const doc = document.querySelector('#profil');
+        const profil = document.querySelector('#profil');
         const focusableElementsArray = [
             '[href]',
             'button:not([disabled])',
@@ -24,7 +24,7 @@ export default class Modal {
 
             dialog.setAttribute('aria-hidden', false);
             dialog.style.display = 'block';
-            doc.setAttribute('aria-hidden', true);
+            profil.setAttribute('aria-hidden', true);
 
             // return if no focusable element
             if (!firstFocusableElement) {
@@ -63,7 +63,7 @@ export default class Modal {
         const close = function (dialog, trigger) {
             dialog.setAttribute('aria-hidden', true);
             dialog.style.display = 'none';
-            doc.setAttribute('aria-hidden', false);
+            profil.setAttribute('aria-hidden', false);
 
             // restoring focus
             trigger.focus();
