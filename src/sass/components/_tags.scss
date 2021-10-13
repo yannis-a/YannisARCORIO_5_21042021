@@ -10,11 +10,6 @@
 
         .tag-link {
             @include tag;
-
-            &:hover{
-                background-color: $bgcolor-primary;
-                color: white;
-            }
         }
 
         .tag {

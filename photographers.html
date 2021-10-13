@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/style.css" rel="stylesheet" type="text/css">
+
     <title>FishEye</title>
-    <script src="node_modules\jquery\dist\jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/f4e9387bdc.js" crossorigin="anonymous"></script>
-    <script src="./dist/app.bundle.js"></script>
+
+    <link href="public/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="profil">
@@ -19,37 +18,16 @@
     </header>
     <main>
         <!-- HEADER -->
-        <section id="profil-header" aria-label="photographer information"></section>
+        <section id="profil-header" class="profil-header" aria-label="photographer information"></section>
 
         <!-- DROPDOWN -->
         <div class="dropdown">
-            <span id="sort-text">Trier par :</span>
-            <div>
-                <button id="sort" class="drop-btn" aria-haspopup="listbox" aria-labelledby="sort-text"
-                    aria-expanded="false" aria-controls="option-list">
-                    Popularité
-                    <span class="fas fa-chevron-down" role='button' aria-hidden="true"></span>
-                </button>
-
-                <ul aria-labelledby="sort" class="option-sort" role="listbox" id="option-list">
-                    <li class="sort" role='option'>
-                        <a tabindex="1" href="#">
-                            <span>Popularité</span>
-                            <span class="fas fa-chevron-up arrow-up-close" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li class="sort" role='option'>
-                        <a tabindex="2" href="#">
-                            Date
-                        </a>
-                    </li>
-                    <li class="sort" role='option'>
-                        <a tabindex="3" href="#">
-                            Tître
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <span id="sort-text">Trier par </span>
+            <select name="sort" id="sort-media" aria-labelledby="Order by" role="button">
+                <option value="1">Popularité</option>
+                <option value="2">Nom</option>
+                <option value="3">Date</option>
+            </select>
         </div>
 
         <!-- MEDIAS -->
@@ -115,10 +93,14 @@
     <footer>
         <div>
             <a href="https://achecker.achecks.ca/checker/index.php?uri=referer&gid=WCAG2-AA">
-                <img src="https://achecker.achecks.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)"/>
+                <img src="https://achecker.achecks.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" />
             </a>
         </div>
     </footer>
+
+    <script src="node_modules\jquery\dist\jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f4e9387bdc.js" crossorigin="anonymous"></script>
+    <script src="src/js/script.js"></script>
 </body>
 
 </html>
