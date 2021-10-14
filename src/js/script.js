@@ -33,22 +33,6 @@ async function getDataFishEye() {
     };
 };
 
-// Ca ne fonctionne pas car c'est un fichier local
-// j'ajoute l'élément alt text dans la balise html <image/> et <video/>
-/* async function editMedia(data) {
-    data.medias.forEach(media => {
-        media.alt = media.title;
-    });
-    let url = '../../src/data.json';
-    let res = await fetch(url, {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-}; */
 //#endregion
 
 //#region INDEX.HTML
@@ -247,7 +231,6 @@ function getGallery(medias, id) {
     let arrayMedias = [];
     medias.forEach(media => {
         if (id == media.photographerId) {
-            media.alt = media.title;
             let mediaHTML = getMedia(media);
             totalLike += parseInt(media.likes);
             arrayMedias.push(media);
@@ -379,7 +362,7 @@ function selectByTags() {
         });
         // listener on keydownEnter filters
         element.addEventListener('keydown', (key) => {
-             if (key.code == 'Enter') {
+            if (key.code == 'Enter') {
                 let classValue = key.target.firstElementChild.classList.value;
                 if (-1 === classValue.indexOf('activated')) {
                     key.target.firstElementChild.classList.add('activated')
